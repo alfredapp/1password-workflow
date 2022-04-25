@@ -2,7 +2,11 @@
 
 Search and open 1Password items
 
-## Instructions
+<a href='https://github.com/alfredapp/1password-workflow/releases/latest/download/1Password.alfredworkflow'>⤓ Download Workflow</a>
+
+## About
+
+<!-- BEGIN ABOUT -->
 
 This Workflow is for 1Password 8. For older versions, see Alfred Preferences → Features → 1Password.
 
@@ -24,10 +28,6 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 
 ![](https://user-images.githubusercontent.com/1699443/164913297-063df227-107e-4026-a330-08269d7424c6.png)
 
-## Download
+<!-- END ABOUT -->
 
-[Get the latest release.](https://github.com/alfredapp/1password-workflow/releases/latest/download/1Password.alfredworkflow)
-
-## License
-
-3-Clause BSD
+<a href='https://github.com/alfredapp/1password-workflow/releases/latest/download/1Password.alfredworkflow'>⤓ Download Workflow</a>
