@@ -881,8 +881,12 @@ if [[ -f "${file}" ]]; then
   exit 0
 fi
 
-# Disable feature for 1Password 7
-/usr/libexec/PlistBuddy -c 'Delete :enabled' "${alfred_preferences}/preferences/local/${alfred_preferences_localhash}/features/1password/prefs.plist" 2&gt; /dev/null
+# Disable 1Password 7 feature
+readonly prefs_file="${alfred_preferences}/preferences/local/${alfred_preferences_localhash}/features/1password/prefs.plist"
+
+if [[ -f "${prefs_file}" ]]; then
+  /usr/libexec/PlistBuddy -c 'Delete :enabled' "${prefs_file}" 2&gt; /dev/null
+fi
 
 echo '{ "items": [{
   "title": "Sign in and update items",
@@ -1389,8 +1393,10 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 		<key>logins_only</key>
 		<string>0</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
-	<string>2022.3</string>
+	<string>2022.4</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
