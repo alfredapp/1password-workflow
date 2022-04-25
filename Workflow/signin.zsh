@@ -7,11 +7,19 @@ if ! cd "$(dirname "${0}")"; then
   exit 1
 fi
 
+# Check if biometric unlock is enabled and can be used
+readonly op_path="$(printf '%q' "$(./1password.js op_path)")"
+
+if [[ "$(./1password.js biometric_unlock_enabled)" == 'true' && "${op_path}" != "/usr/local/bin/op" ]]; then
+  cat './biometrics_banner.txt'
+  exit 1
+fi
+
 cat './instructions_banner.txt'
 
 # Join sign in commands with " && " to avoid sending empty input to the first "op" question
 IFS=',' read -rA user_ids < <(./1password.js 'print_user_ids')
-readonly signin_cmds="$(printf 'eval "$(./op signin --account "%s")" && ' "${user_ids[@]}" | sed 's/ && $//')"
+readonly signin_cmds="$(printf "eval \"\$(${op_path} signin --account \"%s\")\" && " "${user_ids[@]}" | sed 's/ && $//')"
 
 # Sign in
 eval "${signin_cmds}"

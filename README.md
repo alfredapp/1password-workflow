@@ -4,6 +4,8 @@ Search and open 1Password items
 
 ## Instructions
 
+This Workflow is for 1Password 8. For older versions, see Alfred Preferences → Features → 1Password.
+
 Use `1p` to interact with your 1Password items.
 
 On first run you’ll need to set up your account with 1Password’s official command-line tool. Your terminal will open and guide you through the process.
@@ -21,8 +23,6 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 ![](https://user-images.githubusercontent.com/1699443/164913293-a1ff8693-eeb0-4c26-9915-37c294e481e3.png)
 
 ![](https://user-images.githubusercontent.com/1699443/164913297-063df227-107e-4026-a330-08269d7424c6.png)
-
-The Workflow uses tools and methodologies appropriate for 1Password 8. For older versions, see Alfred Preferences → Features → 1Password.
 
 ## Download
 

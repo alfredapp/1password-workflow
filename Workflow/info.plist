@@ -881,6 +881,9 @@ if [[ -f "${file}" ]]; then
   exit 0
 fi
 
+# Disable feature for 1Password 7
+/usr/libexec/PlistBuddy -c 'Delete :enabled' "${alfred_preferences}/preferences/local/${alfred_preferences_localhash}/features/1password/prefs.plist" 2&gt; /dev/null
+
 echo '{ "items": [{
   "title": "Sign in and update items",
   "subtitle": "Your terminal will open with instructions",
@@ -1165,7 +1168,9 @@ fi</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Use `1p` to interact with your 1Password items.
+	<string>This Workflow is for 1Password 8. For older versions, see Alfred Preferences → Features → 1Password.
+
+Use `1p` to interact with your 1Password items.
 
 On first run you’ll need to set up your account with 1Password’s official command-line tool. Your terminal will open and guide you through the process.
 
@@ -1181,9 +1186,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 
 ![](https://user-images.githubusercontent.com/1699443/164913293-a1ff8693-eeb0-4c26-9915-37c294e481e3.png)
 
-![](https://user-images.githubusercontent.com/1699443/164913297-063df227-107e-4026-a330-08269d7424c6.png)
-
-The Workflow uses tools and methodologies appropriate for 1Password 8. For older versions, see Alfred Preferences → Features → 1Password.</string>
+![](https://user-images.githubusercontent.com/1699443/164913297-063df227-107e-4026-a330-08269d7424c6.png)</string>
 	<key>uidata</key>
 	<dict>
 		<key>09BA5A7C-9F72-441C-95B2-46F669C53682</key>
@@ -1235,7 +1238,7 @@ The Workflow uses tools and methodologies appropriate for 1Password 8. For older
 			<key>xpos</key>
 			<integer>230</integer>
 			<key>ypos</key>
-			<integer>440</integer>
+			<integer>435</integer>
 		</dict>
 		<key>4FEB803E-78D2-4DAA-A493-0C499D3B3415</key>
 		<dict>
@@ -1389,7 +1392,7 @@ The Workflow uses tools and methodologies appropriate for 1Password 8. For older
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2022.1</string>
+	<string>2022.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>

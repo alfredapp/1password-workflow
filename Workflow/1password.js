@@ -38,7 +38,7 @@ function runCommand(arguments) {
 
 // String... -> String
 function runOP(...arguments) {
-  const command = ["./op", "--cache"]
+  const command = [opPath(), "--cache"]
   const format = ["--format", "json"]
 
   return JSON.parse(runCommand(command.concat(arguments, format)))
@@ -85,7 +85,7 @@ function getItems(userID, excludedVaults) {
 function getExcludedVaults(filePath) {
   if (!$.NSFileManager.defaultManager.fileExistsAtPath(filePath)) return []
 
-  return readSFJSON(filePath)["items"]
+  return readJSON(filePath)["items"]
     .filter(item => item["variables"]["excluded"])
     .map(item => item["variables"]["vaultID"])
 }
@@ -117,7 +117,7 @@ function getVaults(userID, excludedVaults) {
 
 // String -> ()
 function flipVaultExclusion(filePath, vaultID) {
-  const sfObject = readSFJSON(filePath)
+  const sfObject = readJSON(filePath)
 
   const sfItems = sfObject["items"].map(item => {
     if (item["variables"]["vaultID"] !== vaultID) return item
@@ -132,12 +132,12 @@ function flipVaultExclusion(filePath, vaultID) {
     return item
   })
 
-  writeSFJSON(filePath, {rerun: 0.1, items: sfItems})
+  writeJSON(filePath, {rerun: 0.1, items: sfItems})
 }
 
 // String -> ()
 function prependDataUpdate(filePath) {
-  const sfObject = readSFJSON(filePath)
+  const sfObject = readJSON(filePath)
 
   if (sfObject["items"][0]["arg"] == "update_items") return // Return early if update entry exists
 
@@ -150,17 +150,34 @@ function prependDataUpdate(filePath) {
     arg: "update_items"
   })
 
-  writeSFJSON(filePath, sfObject)
+  writeJSON(filePath, sfObject)
+}
+
+// () -> String
+function opPath() {
+  const installedViaPkg = "/usr/local/bin/op"
+
+  if ($.NSFileManager.defaultManager.isExecutableFileAtPath(installedViaPkg)) return installedViaPkg
+  return "./op"
+}
+
+// () -> Bool
+function biometricUnlockEnabled() {
+  const settingsFile = $("~/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/settings/settings.json").stringByExpandingTildeInPath.js
+
+  if (!$.NSFileManager.defaultManager.fileExistsAtPath(settingsFile)) return false
+  if (readJSON(settingsFile)["developers.cliSharedLockState.enabled"]) return true
+  return false
 }
 
 // String, [String] -> ()
-function writeSFJSON(filePath, sfObject) {
+function writeJSON(filePath, sfObject) {
   mkpath($(filePath).stringByDeletingLastPathComponent.js)
   writeFile(filePath, JSON.stringify(sfObject))
 }
 
 // String -> [Object]
-function readSFJSON(filePath) {
+function readJSON(filePath) {
   const data = $.NSFileManager.defaultManager.contentsAtPath(filePath)
   const string = $.NSString.alloc.initWithDataEncoding(data, $.NSUTF8StringEncoding).js
   return JSON.parse(string)
@@ -183,8 +200,8 @@ function run(argv) {
           variables: {excluded: false, vaultID: false} // Avoid "undefined" errors in fuctions which interact with vaults file
         })
 
-      writeSFJSON(itemsFile, {items: sfItems})
-      writeSFJSON(vaultsFile, {rerun: 0.1, items: sfVaults})
+      writeJSON(itemsFile, {items: sfItems})
+      writeJSON(vaultsFile, {rerun: 0.1, items: sfVaults})
       break
     case "flip_vault_exclusion":
       return flipVaultExclusion(vaultsFile, argv[1])
@@ -192,6 +209,10 @@ function run(argv) {
       return getUserIDs().join(",")
     case "data_update_detected":
       return prependDataUpdate(itemsFile)
+    case "biometric_unlock_enabled":
+      return biometricUnlockEnabled()
+    case "op_path":
+      return opPath()
     default:
       console.log("Unrecognised argument")
   }
