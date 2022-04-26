@@ -10,13 +10,13 @@ fi
 # "op" checks
 readonly op_path="$(printf '%q' "$(./1password.js op_path)")"
 
-if [[ "$(${op_path} --version | cut -d. -f1)" -lt 2 ]]; then
-  cat './old_op_banner.txt'
+if [[ "$(./1password.js biometric_unlock_enabled)" == 'true' && "${op_path}" != "/usr/local/bin/op" ]]; then
+  cat './biometrics_banner.txt'
   exit 1
 fi
 
-if [[ "$(./1password.js biometric_unlock_enabled)" == 'true' && "${op_path}" != "/usr/local/bin/op" ]]; then
-  cat './biometrics_banner.txt'
+if [[ "$(${op_path} --version | cut -d. -f1)" -lt 2 ]]; then
+  cat './old_op_banner.txt'
   exit 1
 fi
 

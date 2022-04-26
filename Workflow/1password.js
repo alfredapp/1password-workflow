@@ -63,9 +63,7 @@ function getItems(userID, excludedVaults) {
     if (envVar("logins_only") === "1" && item["category"] !== "LOGIN") return
 
     const vaultName = vaults.find(vault => vault["id"] === vaultID)["name"]
-
-    const url = runOP("item", "get", "--account", userID, item["id"])["urls"]
-      ?.filter(url => url["primary"])[0]["href"]
+    const url = item["urls"]?.[0]["href"]
 
     return {
       uid: item["id"],
@@ -157,7 +155,10 @@ function prependDataUpdate(filePath) {
 function opPath() {
   const installedViaPkg = "/usr/local/bin/op"
 
-  if ($.NSFileManager.defaultManager.isExecutableFileAtPath(installedViaPkg)) return installedViaPkg
+  // Only return user-installed CLI if necessary (biometric unlock enabled)
+  if (biometricUnlockEnabled() && $.NSFileManager.defaultManager.isExecutableFileAtPath(installedViaPkg)) return installedViaPkg
+
+  // By default, use the command-line included in the Workflow
   return "./op"
 }
 
