@@ -19,6 +19,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>0DF753E5-DF21-4040-BC20-B06B9605360A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9FB513DD-70CB-4714-90C0-60C64D8A8784</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>10031FBB-CD36-4DDE-AA61-1642381CD7AF</key>
 		<array>
 			<dict>
@@ -62,6 +75,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>AE76F4A7-146D-417D-9F3D-F6A410C9C970</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>2BBDFBE4-FBBC-4506-9269-3CFB4017932C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D775FDBF-FDA2-4FDE-9007-02111D660392</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -123,6 +149,18 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>64CCFE84-CB5E-435B-960C-0599C3287084</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>C8F2743C-1389-4043-83D1-7C2750A807F8</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>9FB513DD-70CB-4714-90C0-60C64D8A8784</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -158,8 +196,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>556ED3AD-7754-4CD8-8293-1D142475B475</key>
-		<array/>
 		<key>5B779377-8A0B-4819-9840-611C663A1004</key>
 		<array>
 			<dict>
@@ -176,7 +212,45 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>556ED3AD-7754-4CD8-8293-1D142475B475</string>
+				<string>A8711759-B066-4A18-BB55-8A825C6FC01E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5D3655AA-08CC-45D8-8B7B-ED639939DF1F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0DF753E5-DF21-4040-BC20-B06B9605360A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>5F00C180-A092-46F1-96FB-DD891562A2A8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5D3655AA-08CC-45D8-8B7B-ED639939DF1F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>60128803-7491-4D16-8ADE-FB406F888A2D</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>2BBDFBE4-FBBC-4506-9269-3CFB4017932C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -217,6 +291,19 @@
 				<integer>1048576</integer>
 				<key>modifiersubtext</key>
 				<string>View in 1Password</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>64CCFE84-CB5E-435B-960C-0599C3287084</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9E56D02A-13BF-43CF-819E-6836C62FB87B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -324,6 +411,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>9E56D02A-13BF-43CF-819E-6836C62FB87B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5F00C180-A092-46F1-96FB-DD891562A2A8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+		</array>
 		<key>9FB513DD-70CB-4714-90C0-60C64D8A8784</key>
 		<array>
 			<dict>
@@ -350,6 +450,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>A8711759-B066-4A18-BB55-8A825C6FC01E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D775FDBF-FDA2-4FDE-9007-02111D660392</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>AADC9859-4CF2-43B3-831D-940B6BCBC278</key>
 		<array>
 			<dict>
@@ -367,7 +480,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>9FB513DD-70CB-4714-90C0-60C64D8A8784</string>
+				<string>0DF753E5-DF21-4040-BC20-B06B9605360A</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -390,15 +503,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>triggerid</key>
-				<string>data_update_detected</string>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>readonly items_hash_file="${alfred_workflow_data}/items_hash.txt"
+readonly old_items_hash="$(/bin/cat "${items_hash_file}")"
+readonly new_items_hash="$(/usr/bin/sqlite3 "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/1password.sqlite" 'SELECT * FROM item_overviews;' | md5)"
+
+[[ "${old_items_hash}" == "${new_items_hash}" ]] &amp;&amp; exit 0
+
+./1password.js 'data_update_detected'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.trigger.external</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>900A2A3E-D5CB-475C-996A-C6A8207DB171</string>
+			<string>4FEB803E-78D2-4DAA-A493-0C499D3B3415</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -473,31 +602,15 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>readonly items_hash_file="${alfred_workflow_data}/items_hash.txt"
-readonly old_items_hash="$(/bin/cat "${items_hash_file}")"
-readonly new_items_hash="$(/usr/bin/sqlite3 "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/1password.sqlite" 'SELECT * FROM item_overviews;' | md5)"
-
-[[ "${old_items_hash}" == "${new_items_hash}" ]] &amp;&amp; exit 0
-
-./1password.js 'data_update_detected'</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
+				<key>triggerid</key>
+				<string>data_update_detected</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.trigger.external</string>
 			<key>uid</key>
-			<string>4FEB803E-78D2-4DAA-A493-0C499D3B3415</string>
+			<string>900A2A3E-D5CB-475C-996A-C6A8207DB171</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -598,125 +711,6 @@ printf '  clear &amp;&amp; cat %q/instructions_banner.txt &amp;&amp; eval "$(%q/
 			<integer>1</integer>
 		</dict>
 		<dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.hidealfred</string>
-			<key>uid</key>
-			<string>E0E63366-C846-4EB6-8625-9CCDD1637737</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>fixedorder</key>
-				<false/>
-				<key>items</key>
-				<string>[{"title":"Manage vaults","arg":"manage_vaults","subtitle":"Include or exclude vaults from results"},{"title":"Force update items","arg":"update_items","subtitle":"Your terminal will open with instructions"},{"title":"Add account","arg":"add_account","subtitle":"Use multiple accounts at once"},{"title":"Reset accounts","arg":"reset_accounts","subtitle":"Delete Workflow data"}]</string>
-				<key>keyword</key>
-				<string>:1pextras</string>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Uncommon but useful actions</string>
-				<key>title</key>
-				<string>1Password Extras</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.listfilter</string>
-			<key>uid</key>
-			<string>985CB791-EA4E-4B3E-A04E-37A481C33035</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Getting vaults…</string>
-				<key>script</key>
-				<string>readonly file="${alfred_workflow_data}/vaults.json"
-
-if [[ -f "${file}" ]]; then
-  export uid_seed="$(date '+%s')"
-  cat "${file}"
-  exit 0
-fi
-
-echo '{ "items": [{
-  "title": "Sign in and update items",
-  "subtitle": "Your terminal will open with instructions",
-  "arg": "update_items"
-}] }'</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Include or exclude vaults from results</string>
-				<key>title</key>
-				<string>Manage vaults</string>
-				<key>type</key>
-				<integer>5</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>666D7BDE-787B-44BD-A535-3F76541B7F8C</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./1password.js 'flip_vault_exclusion' "${1}"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>556ED3AD-7754-4CD8-8293-1D142475B475</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
 			<key>config</key>
 			<dict>
 				<key>conditions</key>
@@ -763,6 +757,20 @@ echo '{ "items": [{
 						<key>uid</key>
 						<string>C84F022F-832E-431C-8EBE-74DB981EEFB8</string>
 					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>manage_accounts</string>
+						<key>outputlabel</key>
+						<string>Manage accounts</string>
+						<key>uid</key>
+						<string>C8F2743C-1389-4043-83D1-7C2750A807F8</string>
+					</dict>
 				</array>
 				<key>elselabel</key>
 				<string>Update items</string>
@@ -771,6 +779,124 @@ echo '{ "items": [{
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>4AFED243-84FB-4005-B115-FFD8635E6737</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./1password.js "${flip_type}" "${1}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D775FDBF-FDA2-4FDE-9007-02111D660392</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Getting vaults…</string>
+				<key>script</key>
+				<string>readonly file="${alfred_workflow_data}/vaults.json"
+
+if [[ -f "${file}" ]]; then
+  cat "${file}"
+  exit 0
+fi
+
+echo '{ "items": [{
+  "title": "Sign in and update items",
+  "subtitle": "Your terminal will open with instructions",
+  "arg": "update_items"
+}] }'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Include or exclude vaults from results</string>
+				<key>title</key>
+				<string>Manage vaults</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>666D7BDE-787B-44BD-A535-3F76541B7F8C</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.hidealfred</string>
+			<key>uid</key>
+			<string>E0E63366-C846-4EB6-8625-9CCDD1637737</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>fixedorder</key>
+				<false/>
+				<key>items</key>
+				<string>[{"title":"Manage vaults","arg":"manage_vaults","subtitle":"Include or exclude vaults from results"},{"title":"Force update items","arg":"update_items","subtitle":"Your terminal will open with instructions"},{"title":"Add account","arg":"add_account","subtitle":"Use multiple accounts at once"},{"title":"Manage accounts","arg":"manage_accounts","subtitle":"Include or exclude accounts from results"},{"title":"Reset accounts","arg":"reset_accounts","subtitle":"Delete Workflow data"}]</string>
+				<key>keyword</key>
+				<string>:1pextras</string>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Uncommon but useful actions</string>
+				<key>title</key>
+				<string>1Password Extras</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.listfilter</string>
+			<key>uid</key>
+			<string>985CB791-EA4E-4B3E-A04E-37A481C33035</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -795,7 +921,7 @@ echo '{ "items": [{
 					</dict>
 				</array>
 				<key>elselabel</key>
-				<string>Flip vault inclusion</string>
+				<string>Flip vault exclusion</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.conditional</string>
@@ -824,6 +950,173 @@ echo '{ "items": [{
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>flip_type</key>
+					<string>flip_vault_exclusion</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>A8711759-B066-4A18-BB55-8A825C6FC01E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Getting accounts…</string>
+				<key>script</key>
+				<string>readonly file="${alfred_workflow_data}/users.json"
+
+# If we detect active users
+if [[ -n "$(./op account list)" ]]; then
+  # Create users JSON if it does not exist
+  [[ -f "${file}" ]] || ./1password.js 'write_user_json'
+
+  # Show self-updating users JSON
+  ./1password.js 'print_user_json'
+
+  exit 0
+fi
+
+echo '{ "items": [{
+  "title": "Sign in and update items",
+  "subtitle": "Your terminal will open with instructions",
+  "arg": "update_items"
+}] }'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Include or exclude accounts from results</string>
+				<key>title</key>
+				<string>Manage accounts</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>9E56D02A-13BF-43CF-819E-6836C62FB87B</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.hidealfred</string>
+			<key>uid</key>
+			<string>5D3655AA-08CC-45D8-8B7B-ED639939DF1F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>update_items</string>
+						<key>outputlabel</key>
+						<string>Update items</string>
+						<key>uid</key>
+						<string>60128803-7491-4D16-8ADE-FB406F888A2D</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>Flip account exclusion</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>5F00C180-A092-46F1-96FB-DD891562A2A8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>64CCFE84-CB5E-435B-960C-0599C3287084</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.junction</string>
+			<key>uid</key>
+			<string>0DF753E5-DF21-4040-BC20-B06B9605360A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>flip_type</key>
+					<string>flip_user_exclusion</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>2BBDFBE4-FBBC-4506-9269-3CFB4017932C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -845,6 +1138,21 @@ printf '  export alfred_workflow_data=%q &amp;&amp; export logins_only=%q &amp;&
 			<string>9FB513DD-70CB-4714-90C0-60C64D8A8784</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.terminalcommand</string>
+			<key>uid</key>
+			<string>82BDBABC-EF45-49EC-9E6D-AAA169CC3C7A</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -916,21 +1224,6 @@ echo '{ "items": [{
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.terminalcommand</string>
-			<key>uid</key>
-			<string>82BDBABC-EF45-49EC-9E6D-AAA169CC3C7A</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>conditions</key>
 				<array>
 					<dict>
@@ -955,6 +1248,25 @@ echo '{ "items": [{
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>10031FBB-CD36-4DDE-AA61-1642381CD7AF</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string></string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>2166D3DB-EF96-4C03-B95A-77D5068615D7</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -989,25 +1301,6 @@ echo '{ "items": [{
 			<string>3C6D1460-731F-4A4A-8836-8AD03743EE23</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string></string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>2166D3DB-EF96-4C03-B95A-77D5068615D7</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1182,13 +1475,13 @@ On first run you’ll need to set up your account with 1Password’s official co
 
 From then on, `1p` will show your items. ↵ opens the website in your browser (and fills the credentials if you have the browser extension installed) while ⌘↵ opens the item in 1Password.
 
-![](https://user-images.githubusercontent.com/1699443/164912992-b06c1eca-3636-46e7-84d7-7efedc5c23a9.png)
+![](https://user-images.githubusercontent.com/1699443/165388581-76d31e34-34ae-45d3-82de-2abc7e218f69.png)
 
 The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types.
 
 Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pextras`.
 
-![](https://user-images.githubusercontent.com/1699443/164913293-a1ff8693-eeb0-4c26-9915-37c294e481e3.png)
+![](https://user-images.githubusercontent.com/1699443/165388195-40975de6-6fe4-4607-96d9-ce96d835ac73.png)
 
 ![](https://user-images.githubusercontent.com/1699443/164913297-063df227-107e-4026-a330-08269d7424c6.png)</string>
 	<key>uidata</key>
@@ -1200,19 +1493,28 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>ypos</key>
 			<integer>305</integer>
 		</dict>
+		<key>0DF753E5-DF21-4040-BC20-B06B9605360A</key>
+		<dict>
+			<key>note</key>
+			<string>Continue to update items</string>
+			<key>xpos</key>
+			<integer>1130</integer>
+			<key>ypos</key>
+			<integer>595</integer>
+		</dict>
 		<key>10031FBB-CD36-4DDE-AA61-1642381CD7AF</key>
 		<dict>
 			<key>xpos</key>
 			<integer>230</integer>
 			<key>ypos</key>
-			<integer>605</integer>
+			<integer>715</integer>
 		</dict>
 		<key>1F48BB68-C11E-4C91-A9DA-E19098554E9A</key>
 		<dict>
 			<key>xpos</key>
 			<integer>230</integer>
 			<key>ypos</key>
-			<integer>925</integer>
+			<integer>1035</integer>
 		</dict>
 		<key>2166D3DB-EF96-4C03-B95A-77D5068615D7</key>
 		<dict>
@@ -1221,7 +1523,14 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>935</integer>
 			<key>ypos</key>
-			<integer>730</integer>
+			<integer>840</integer>
+		</dict>
+		<key>2BBDFBE4-FBBC-4506-9269-3CFB4017932C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>865</integer>
+			<key>ypos</key>
+			<integer>625</integer>
 		</dict>
 		<key>36A773EE-B145-4579-B70F-6D286604C92B</key>
 		<dict>
@@ -1235,14 +1544,14 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>670</integer>
 			<key>ypos</key>
-			<integer>730</integer>
+			<integer>840</integer>
 		</dict>
 		<key>4AFED243-84FB-4005-B115-FFD8635E6737</key>
 		<dict>
 			<key>xpos</key>
 			<integer>230</integer>
 			<key>ypos</key>
-			<integer>435</integer>
+			<integer>410</integer>
 		</dict>
 		<key>4FEB803E-78D2-4DAA-A493-0C499D3B3415</key>
 		<dict>
@@ -1258,19 +1567,26 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>ypos</key>
 			<integer>335</integer>
 		</dict>
-		<key>556ED3AD-7754-4CD8-8293-1D142475B475</key>
-		<dict>
-			<key>xpos</key>
-			<integer>1130</integer>
-			<key>ypos</key>
-			<integer>435</integer>
-		</dict>
 		<key>5B779377-8A0B-4819-9840-611C663A1004</key>
 		<dict>
 			<key>xpos</key>
 			<integer>670</integer>
 			<key>ypos</key>
 			<integer>455</integer>
+		</dict>
+		<key>5D3655AA-08CC-45D8-8B7B-ED639939DF1F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>865</integer>
+			<key>ypos</key>
+			<integer>565</integer>
+		</dict>
+		<key>5F00C180-A092-46F1-96FB-DD891562A2A8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>670</integer>
+			<key>ypos</key>
+			<integer>585</integer>
 		</dict>
 		<key>604864F3-BFC6-44E3-9B01-F23F5B25D77F</key>
 		<dict>
@@ -1284,7 +1600,14 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>60</integer>
 			<key>ypos</key>
-			<integer>585</integer>
+			<integer>695</integer>
+		</dict>
+		<key>64CCFE84-CB5E-435B-960C-0599C3287084</key>
+		<dict>
+			<key>xpos</key>
+			<integer>405</integer>
+			<key>ypos</key>
+			<integer>595</integer>
 		</dict>
 		<key>666D7BDE-787B-44BD-A535-3F76541B7F8C</key>
 		<dict>
@@ -1300,7 +1623,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>670</integer>
 			<key>ypos</key>
-			<integer>895</integer>
+			<integer>1005</integer>
 		</dict>
 		<key>745206F1-E7CE-43E5-93E0-80BAC4DC608C</key>
 		<dict>
@@ -1314,7 +1637,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>935</integer>
 			<key>ypos</key>
-			<integer>585</integer>
+			<integer>695</integer>
 		</dict>
 		<key>900A2A3E-D5CB-475C-996A-C6A8207DB171</key>
 		<dict>
@@ -1328,7 +1651,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>490</integer>
 			<key>ypos</key>
-			<integer>750</integer>
+			<integer>860</integer>
 		</dict>
 		<key>985CB791-EA4E-4B3E-A04E-37A481C33035</key>
 		<dict>
@@ -1337,12 +1660,19 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>ypos</key>
 			<integer>435</integer>
 		</dict>
+		<key>9E56D02A-13BF-43CF-819E-6836C62FB87B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>490</integer>
+			<key>ypos</key>
+			<integer>565</integer>
+		</dict>
 		<key>9FB513DD-70CB-4714-90C0-60C64D8A8784</key>
 		<dict>
 			<key>xpos</key>
 			<integer>490</integer>
 			<key>ypos</key>
-			<integer>585</integer>
+			<integer>695</integer>
 		</dict>
 		<key>A37B93D7-6352-42BE-B1CD-FE57CFD9C54B</key>
 		<dict>
@@ -1351,12 +1681,19 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>ypos</key>
 			<integer>305</integer>
 		</dict>
+		<key>A8711759-B066-4A18-BB55-8A825C6FC01E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>865</integer>
+			<key>ypos</key>
+			<integer>495</integer>
+		</dict>
 		<key>AADC9859-4CF2-43B3-831D-940B6BCBC278</key>
 		<dict>
 			<key>xpos</key>
 			<integer>865</integer>
 			<key>ypos</key>
-			<integer>760</integer>
+			<integer>870</integer>
 		</dict>
 		<key>ACCDC3AA-BCFF-4406-B851-9DF07B65D2DD</key>
 		<dict>
@@ -1376,7 +1713,14 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>1130</integer>
 			<key>ypos</key>
-			<integer>895</integer>
+			<integer>1005</integer>
+		</dict>
+		<key>D775FDBF-FDA2-4FDE-9007-02111D660392</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1130</integer>
+			<key>ypos</key>
+			<integer>435</integer>
 		</dict>
 		<key>E0E63366-C846-4EB6-8625-9CCDD1637737</key>
 		<dict>
@@ -1396,7 +1740,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2022.5</string>
+	<string>2022.6</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>

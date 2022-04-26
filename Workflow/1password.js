@@ -44,17 +44,12 @@ function runOP(...arguments) {
   return JSON.parse(runCommand(command.concat(arguments, format)))
 }
 
-// () -> [String]
-function getUserIDs() {
-  return runOP("account", "list")
-    .map(account => account["user_uuid"])
-    .filter(item => item !== undefined)
-}
-
 // String -> [Object]
 function getItems(userID, excludedVaults) {
   const vaults = runOP("vault", "list", "--account", userID)
   const accountID = runOP("account", "get", "--account", userID)["id"]
+  const accountShorthand = runOP("account", "list")
+    .find(account => account["user_uuid"] === userID)["shorthand"]
 
   return runOP("item", "list", "--account", userID).map(item => {
     const vaultID = item["vault"]["id"]
@@ -68,7 +63,7 @@ function getItems(userID, excludedVaults) {
     return {
       uid: item["id"],
       title: item["title"],
-      subtitle: url ? url + " 𐄁 " + vaultName : vaultName,
+      subtitle: url ? `${url} 𐄁 ${vaultName} 𐄁 ${accountShorthand}` : `${vaultName} 𐄁 ${accountShorthand}`,
       variables: {
         accountID: accountID,
         vaultID: vaultID,
@@ -80,17 +75,42 @@ function getItems(userID, excludedVaults) {
 }
 
 // () -> [String]
-function getExcludedVaults(filePath) {
+function getExcluded(filePath, varName) {
   if (!$.NSFileManager.defaultManager.fileExistsAtPath(filePath)) return []
 
   return readJSON(filePath)["items"]
     .filter(item => item["variables"]["excluded"])
-    .map(item => item["variables"]["vaultID"])
+    .map(item => item["variables"][varName])
+}
+
+// () -> [Object]
+function getUserIDs(excludedUserIDs) {
+  return runOP("account", "list").map(account => {
+    const accountShorthand = account["shorthand"]
+    const accountEmail = account["email"]
+    const accountURL = account["url"]
+
+    const userID = account["user_uuid"]
+    const excluded = excludedUserIDs.includes(userID)
+    const mark = excluded ? "✗" : "✓"
+
+    return {
+      uid: userID,
+      title: `${mark} ${accountShorthand}`,
+      subtitle: `${accountEmail} 𐄁 ${accountURL}`,
+      arg: userID,
+      variables: {
+        excluded: excluded,
+        userID: userID
+      }
+    }
+  })
 }
 
 // String -> [Object]
 function getVaults(userID, excludedVaults) {
-  const account = runOP("account", "list", "--account", userID)[0]
+  const account = runOP("account", "list")
+    .find(account => account["user_uuid"] === userID)
   const accountShorthand = account["shorthand"]
   const accountEmail = account["email"]
   const accountURL = account["url"]
@@ -102,8 +122,8 @@ function getVaults(userID, excludedVaults) {
 
     return {
       uid: vaultID,
-      title: mark + " " + vault["name"],
-      subtitle: accountShorthand + " 𐄁 " + accountEmail + " 𐄁 " + accountURL,
+      title: `${mark} ${vault["name"]}`,
+      subtitle: `${accountShorthand} 𐄁 ${accountEmail} 𐄁 ${accountURL}`,
       arg: vaultID,
       variables: {
         excluded: excluded,
@@ -114,15 +134,15 @@ function getVaults(userID, excludedVaults) {
 }
 
 // String -> ()
-function flipVaultExclusion(filePath, vaultID) {
+function flipExclusion(filePath, varName, id) {
   const sfObject = readJSON(filePath)
 
   const sfItems = sfObject["items"].map(item => {
-    if (item["variables"]["vaultID"] !== vaultID) return item
+    if (item["variables"][varName] !== id) return item
 
     const flippedState = !item["variables"]["excluded"]
     const titleNoMark = item["title"].substring(2)
-    const title = (flippedState ? "✗": "✓") + " " + titleNoMark
+    const title = `${flippedState ? "✗": "✓"} ${titleNoMark}`
 
     item["title"] = title
     item["variables"]["excluded"] = flippedState
@@ -135,6 +155,8 @@ function flipVaultExclusion(filePath, vaultID) {
 
 // String -> ()
 function prependDataUpdate(filePath) {
+  if (!$.NSFileManager.defaultManager.fileExistsAtPath(filePath)) return // Return early if items file does not exist (e.g. managing accounts before first sign in)
+
   const sfObject = readJSON(filePath)
 
   if (sfObject["items"][0]["arg"] == "update_items") return // Return early if update entry exists
@@ -185,15 +207,33 @@ function readJSON(filePath) {
 }
 
 function run(argv) {
-  const itemsFile = envVar("alfred_workflow_data") + "/items.json"
+  // Data files
+  const usersFile = envVar("alfred_workflow_data") + "/users.json"
   const vaultsFile = envVar("alfred_workflow_data") + "/vaults.json"
+  const itemsFile = envVar("alfred_workflow_data") + "/items.json"
 
+  // User ID information is useful in more than one command
+  const excludedUserIDs = getExcluded(usersFile, "userID")
+  const usersObject = getUserIDs(excludedUserIDs)
+  const activeUserIDs = usersObject
+    .filter(item => !item["variables"]["excluded"])
+    .map(item => item["variables"]["userID"])
+
+  const sfUserIDs = usersObject
+    .concat({
+      title: "Update items",
+      subtitle: "Your terminal will open with instructions",
+      arg: "update_items",
+      variables: {excluded: false, userID: false} // Avoid "undefined" errors in fuctions which interact with users file
+    })
+
+  // Commands
   switch (argv[0]) {
     case "update_items":
-      const excludedVaults = getExcludedVaults(vaultsFile)
-      const sfItems = getUserIDs().flatMap(userID => getItems(userID, excludedVaults))
+      const excludedVaults = getExcluded(vaultsFile, "vaultID")
+      const sfItems = activeUserIDs.flatMap(userID => getItems(userID, excludedVaults))
 
-      const sfVaults = getUserIDs().flatMap(userID => getVaults(userID, excludedVaults))
+      const sfVaults = activeUserIDs.flatMap(userID => getVaults(userID, excludedVaults))
         .concat({
           title: "Update items",
           subtitle: "Your terminal will open with instructions",
@@ -201,13 +241,21 @@ function run(argv) {
           variables: {excluded: false, vaultID: false} // Avoid "undefined" errors in fuctions which interact with vaults file
         })
 
-      writeJSON(itemsFile, {items: sfItems})
       writeJSON(vaultsFile, {rerun: 0.1, items: sfVaults})
+      writeJSON(itemsFile, {items: sfItems})
       break
+    case "flip_user_exclusion":
+      flipExclusion(usersFile, "userID", argv[1])
+      return prependDataUpdate(itemsFile)
     case "flip_vault_exclusion":
-      return flipVaultExclusion(vaultsFile, argv[1])
+      flipExclusion(vaultsFile, "vaultID", argv[1])
+      return prependDataUpdate(itemsFile)
     case "print_user_ids":
-      return getUserIDs().join(",")
+      return activeUserIDs.join(",")
+    case "print_user_json":
+      return JSON.stringify({rerun: 0.1, items: sfUserIDs})
+    case "write_user_json":
+      return writeJSON(usersFile, {rerun: 0.1, items: sfUserIDs})
     case "data_update_detected":
       return prependDataUpdate(itemsFile)
     case "biometric_unlock_enabled":
