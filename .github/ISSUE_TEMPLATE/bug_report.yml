@@ -28,5 +28,12 @@ body:
       required: true
   - type: textarea
     attributes:
+      label: Terminal output
+      description: Redact private information
+      render: terminal_text
+    validations:
+      required: true
+  - type: textarea
+    attributes:
       label: More details
       description: Explain what you did, what happened, and what you expected to happen
