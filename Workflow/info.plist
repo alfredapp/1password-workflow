@@ -476,6 +476,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>AB4202F0-D40C-43BF-B596-C9F1B44B6DB7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>608EC08C-E2FB-4A53-B92A-DEAA5E177DAD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>E0E63366-C846-4EB6-8625-9CCDD1637737</key>
 		<array>
 			<dict>
@@ -964,6 +977,19 @@ echo '{ "items": [{
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>A8711759-B066-4A18-BB55-8A825C6FC01E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>text</key>
+				<string>Search 1Password for '{query}'</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.fallback</string>
+			<key>uid</key>
+			<string>AB4202F0-D40C-43BF-B596-C9F1B44B6DB7</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1695,6 +1721,13 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>ypos</key>
 			<integer>870</integer>
 		</dict>
+		<key>AB4202F0-D40C-43BF-B596-C9F1B44B6DB7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>565</integer>
+		</dict>
 		<key>ACCDC3AA-BCFF-4406-B851-9DF07B65D2DD</key>
 		<dict>
 			<key>note</key>
@@ -1740,7 +1773,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2022.6</string>
+	<string>2022.7</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
