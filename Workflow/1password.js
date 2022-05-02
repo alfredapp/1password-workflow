@@ -48,8 +48,8 @@ function runOP(...arguments) {
 function getItems(userID, excludedVaults) {
   const vaults = runOP("vault", "list", "--account", userID)
   const accountID = runOP("account", "get", "--account", userID)["id"]
-  const accountShorthand = runOP("account", "list")
-    .find(account => account["user_uuid"] === userID)["shorthand"]
+  const accountURL = runOP("account", "list")
+    .find(account => account["user_uuid"] === userID)["url"].replace(/^https?:\/\//, "")
 
   return runOP("item", "list", "--account", userID).map(item => {
     const vaultID = item["vault"]["id"]
@@ -63,7 +63,7 @@ function getItems(userID, excludedVaults) {
     return {
       uid: item["id"],
       title: item["title"],
-      subtitle: url ? `${url} 𐄁 ${vaultName} 𐄁 ${accountShorthand}` : `${vaultName} 𐄁 ${accountShorthand}`,
+      subtitle: url ? `${url} 𐄁 ${vaultName} 𐄁 ${accountURL}` : `${vaultName} 𐄁 ${accountURL}`,
       variables: {
         accountID: accountID,
         vaultID: vaultID,
@@ -86,9 +86,8 @@ function getExcluded(filePath, varName) {
 // () -> [Object]
 function getUserIDs(excludedUserIDs) {
   return runOP("account", "list").map(account => {
-    const accountShorthand = account["shorthand"]
     const accountEmail = account["email"]
-    const accountURL = account["url"]
+    const accountURL = account["url"].replace(/^https?:\/\//, "")
 
     const userID = account["user_uuid"]
     const excluded = excludedUserIDs.includes(userID)
@@ -96,8 +95,8 @@ function getUserIDs(excludedUserIDs) {
 
     return {
       uid: userID,
-      title: `${mark} ${accountShorthand}`,
-      subtitle: `${accountEmail} 𐄁 ${accountURL}`,
+      title: `${mark} ${accountEmail}`,
+      subtitle: accountURL,
       arg: userID,
       variables: {
         excluded: excluded,
@@ -111,9 +110,8 @@ function getUserIDs(excludedUserIDs) {
 function getVaults(userID, excludedVaults) {
   const account = runOP("account", "list")
     .find(account => account["user_uuid"] === userID)
-  const accountShorthand = account["shorthand"]
   const accountEmail = account["email"]
-  const accountURL = account["url"]
+  const accountURL = account["url"].replace(/^https?:\/\//, "")
 
   return runOP("vault", "list", "--account", userID).map(vault => {
     const vaultID = vault["id"]
@@ -123,7 +121,7 @@ function getVaults(userID, excludedVaults) {
     return {
       uid: vaultID,
       title: `${mark} ${vault["name"]}`,
-      subtitle: `${accountShorthand} 𐄁 ${accountEmail} 𐄁 ${accountURL}`,
+      subtitle: `${accountEmail} 𐄁 ${accountURL}`,
       arg: vaultID,
       variables: {
         excluded: excluded,

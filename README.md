@@ -18,7 +18,7 @@ On first run you’ll need to set up your account with 1Password’s official co
 
 From then on, `1p` will show your items. ↵ opens the website in your browser (and fills the credentials if you have the browser extension installed) while ⌘↵ opens the item in 1Password.
 
-![](https://user-images.githubusercontent.com/1699443/165388581-76d31e34-34ae-45d3-82de-2abc7e218f69.png)
+![](https://user-images.githubusercontent.com/1699443/166268538-3706cc02-dd9e-4a05-8b4f-4eadca4cf692.png)
 
 The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types.
 
@@ -26,7 +26,9 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 
 ![](https://user-images.githubusercontent.com/1699443/165388195-40975de6-6fe4-4607-96d9-ce96d835ac73.png)
 
-![](https://user-images.githubusercontent.com/1699443/164913297-063df227-107e-4026-a330-08269d7424c6.png)
+![](https://user-images.githubusercontent.com/1699443/166268572-bc504873-5ff0-43a1-b76c-90bf380d8633.png)
+
+`!gddiagnostic` inspects the current Workflow configuration. It is to be run when asking for help.
 
 <!-- END ABOUT -->
 
