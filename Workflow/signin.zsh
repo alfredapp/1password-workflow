@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-clear
-
 if ! cd "$(dirname "${0}")"; then
   echo "Could not change to Workflow directory at $(dirname "${0}")" >&2
   exit 1

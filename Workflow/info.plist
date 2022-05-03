@@ -720,11 +720,18 @@ rm "${HOME}/Library/LaunchAgents/${alfred_workflow_bundleid}.plist"</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string># Add notice to update items
-./1password.js 'data_update_detected'
+				<string>./1password.js 'data_update_detected' # Add notice to update items
 
-# Escaped for terminal
-printf 'clear &amp;&amp; cat %q/instructions_banner.txt &amp;&amp; eval "$(%q/op account add --signin --shorthand %q)" &amp;&amp; echo "\nYou may close the terminal."' "${PWD}" "${PWD}" "${1}"</string>
+readonly script="$(mktemp)"
+
+printf '#!/bin/zsh\n' &gt; "${script}"
+printf 'clear\n' &gt;&gt; "${script}"
+printf 'cat %q/instructions_banner.txt\n' "${PWD}" &gt;&gt; "${script}"
+printf 'eval "$(%q/op account add --signin --shorthand %q)"\n' "${PWD}" "${1}" &gt;&gt; "${script}"
+printf 'echo "\\nYou may close the terminal."\n' &gt;&gt; "${script}"
+printf 'rm "${0}"\n' &gt;&gt; "${script}"
+
+printf '%q' "${script}" # print without newline to avoid sending empty input to the first "op" question</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1201,9 +1208,16 @@ echo '{ "items": [{
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string># Escaped for terminal, but also removes the newline
-# to avoid sending empty input to the first "op" question
-printf 'export alfred_workflow_data=%q &amp;&amp; export logins_only=%q &amp;&amp; %q/signin.zsh' "${alfred_workflow_data}" "${logins_only}" "${PWD}"</string>
+				<string>readonly script="$(mktemp)"
+
+printf '#!/bin/zsh\n' &gt; "${script}"
+printf 'clear\n' &gt;&gt; "${script}"
+printf 'export alfred_workflow_data=%q\n' "${alfred_workflow_data}" &gt;&gt; "${script}"
+printf 'export logins_only=%q\n' "${logins_only}" &gt;&gt; "${script}"
+printf '%q/signin.zsh\n' "${PWD}" &gt;&gt; "${script}"
+printf 'rm "${0}"\n' &gt;&gt; "${script}"
+
+printf '%q' "${script}" # print without newline to avoid sending empty input to the first "op" question</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1224,8 +1238,7 @@ printf 'export alfred_workflow_data=%q &amp;&amp; export logins_only=%q &amp;&am
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>  /bin/zsh
-  {query}</string>
+				<string>  /bin/zsh {query}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.terminalcommand</string>
@@ -2031,8 +2044,10 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 		<key>logins_only</key>
 		<string>0</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
-	<string>2022.8</string>
+	<string>2022.9</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
