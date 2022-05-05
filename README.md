@@ -20,7 +20,7 @@ From then on, `1p` will show your items. ↵ opens the website in your browser (
 
 ![](https://user-images.githubusercontent.com/1699443/166268538-3706cc02-dd9e-4a05-8b4f-4eadca4cf692.png)
 
-The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types.
+The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types. Set `hide_url` to `1` if you want to hide URLs in the subtext of logins.
 
 Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pextras`.
 

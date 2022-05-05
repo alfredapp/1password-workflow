@@ -63,7 +63,9 @@ function getItems(userID, excludedVaults) {
     return {
       uid: item["id"],
       title: item["title"],
-      subtitle: url ? `${url} 𐄁 ${vaultName} 𐄁 ${accountURL}` : `${vaultName} 𐄁 ${accountURL}`,
+      subtitle: (url && envVar("hide_url") !== "1") 
+        ? `${url} 𐄁 ${vaultName} 𐄁 ${accountURL}` 
+        : `${vaultName} 𐄁 ${accountURL}`,
       variables: {
         accountID: accountID,
         vaultID: vaultID,
