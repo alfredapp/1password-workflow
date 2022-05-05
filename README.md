@@ -22,6 +22,13 @@ From then on, `1p` will show your items. ↵ opens the website in your browser (
 
 The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types.
 
+You can control the items and their order that are included in the subtitle of logins by configuring `subtitle_items`. Available subtitle items:
+
+* `username`: The username of a login.
+* `url`: The URL that 1password uses for this login.
+* `vault`: The vault the login is contained within.
+* `opAccount`: The 1Password account that this login belongs to.
+
 Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pextras`.
 
 ![](https://user-images.githubusercontent.com/1699443/165388195-40975de6-6fe4-4607-96d9-ce96d835ac73.png)

@@ -1214,6 +1214,7 @@ printf '#!/bin/zsh\n' &gt; "${script}"
 printf 'clear\n' &gt;&gt; "${script}"
 printf 'export alfred_workflow_data=%q\n' "${alfred_workflow_data}" &gt;&gt; "${script}"
 printf 'export logins_only=%q\n' "${logins_only}" &gt;&gt; "${script}"
+printf 'export subtitle_items=%q\n' "${subtitle_items}" &gt;&gt; "${script}"
 printf '%q/signin.zsh\n' "${PWD}" &gt;&gt; "${script}"
 printf 'rm "${0}"\n' &gt;&gt; "${script}"
 
@@ -2043,9 +2044,9 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 		<string>1</string>
 		<key>logins_only</key>
 		<string>0</string>
+		<key>subtitle_items</key>
+		<string>username, url, vault, opAccount</string>
 	</dict>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>2022.9</string>
 	<key>webaddress</key>

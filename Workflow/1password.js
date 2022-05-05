@@ -63,7 +63,7 @@ function getItems(userID, excludedVaults) {
     return {
       uid: item["id"],
       title: item["title"],
-      subtitle: url ? `${url} 𐄁 ${vaultName} 𐄁 ${accountURL}` : `${vaultName} 𐄁 ${accountURL}`,
+      subtitle: formatSubtitle(vaultName, accountURL, item),
       variables: {
         accountID: accountID,
         vaultID: vaultID,
@@ -72,6 +72,25 @@ function getItems(userID, excludedVaults) {
       }
     }
   }).filter(item => item !== undefined) // Remove skipped items (excluded vaults or non-logins)
+}
+
+// String, String, Object -> String
+function formatSubtitle(vault, account, item) {
+  const context = {
+    vault,
+    opAccount: account,
+    url: item["urls"]?.[0]["href"],
+    username: item["additional_information"],
+  }
+
+  const items = envVar("subtitle_items")?.split(/,\s+/) || ["username", "url", "vault", "opAccount"]
+  const values = []
+  for (const item of items) {
+    if (!context[item]) continue
+    values.push(context[item])
+  }
+
+  return values.join(" 𐄁 ")
 }
 
 // () -> [String]
