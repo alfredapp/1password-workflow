@@ -286,6 +286,16 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>7EA782FD-00BA-4040-9290-5184E58B456E</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>otp</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>1F48BB68-C11E-4C91-A9DA-E19098554E9A</string>
 				<key>modifiers</key>
 				<integer>1048576</integer>
@@ -373,6 +383,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>7EA782FD-00BA-4040-9290-5184E58B456E</key>
+		<array/>
 		<key>82BDBABC-EF45-49EC-9E6D-AAA169CC3C7A</key>
 		<array>
 			<dict>
@@ -1428,6 +1440,29 @@ echo '{ "items": [{
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/local/bin/op item get --otp $itemID | pbcopy</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7EA782FD-00BA-4040-9290-5184E58B456E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -1910,6 +1945,13 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<integer>60</integer>
 			<key>ypos</key>
 			<integer>1175</integer>
+		</dict>
+		<key>7EA782FD-00BA-4040-9290-5184E58B456E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>285</integer>
+			<key>ypos</key>
+			<integer>865</integer>
 		</dict>
 		<key>82BDBABC-EF45-49EC-9E6D-AAA169CC3C7A</key>
 		<dict>
