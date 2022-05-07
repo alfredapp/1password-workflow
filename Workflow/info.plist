@@ -196,6 +196,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>5526B8BB-14D0-4271-94CE-0C7C2A1DC4E7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>608EC08C-E2FB-4A53-B92A-DEAA5E177DAD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>5B779377-8A0B-4819-9840-611C663A1004</key>
 		<array>
 			<dict>
@@ -1214,6 +1227,7 @@ printf '#!/bin/zsh\n' &gt; "${script}"
 printf 'clear\n' &gt;&gt; "${script}"
 printf 'export alfred_workflow_data=%q\n' "${alfred_workflow_data}" &gt;&gt; "${script}"
 printf 'export logins_only=%q\n' "${logins_only}" &gt;&gt; "${script}"
+printf 'export hostnames_only=%q\n' "${hostnames_only}" &gt;&gt; "${script}"
 printf '%q/signin.zsh\n' "${PWD}" &gt;&gt; "${script}"
 printf 'rm "${0}"\n' &gt;&gt; "${script}"
 
@@ -1362,6 +1376,37 @@ echo '{ "items": [{
 			<string>2166D3DB-EF96-4C03-B95A-77D5068615D7</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>5526B8BB-14D0-4271-94CE-0C7C2A1DC4E7</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1736,9 +1781,9 @@ On first run you’ll need to set up your account with 1Password’s official co
 
 From then on, `1p` will show your items. ↵ opens the website in your browser (and fills the credentials if you have the browser extension installed) while ⌘↵ opens the item in 1Password.
 
-![](https://user-images.githubusercontent.com/1699443/166268538-3706cc02-dd9e-4a05-8b4f-4eadca4cf692.png)
+![](https://user-images.githubusercontent.com/1699443/167198194-cb5bf2b7-52ee-4b39-bf0a-a921eb63c26d.png)
 
-The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types.
+The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types. Set `hostnames_only` to `0` if you want to see full URLs in results.
 
 Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pextras`.
 
@@ -1777,7 +1822,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>230</integer>
 			<key>ypos</key>
-			<integer>1035</integer>
+			<integer>1020</integer>
 		</dict>
 		<key>2166D3DB-EF96-4C03-B95A-77D5068615D7</key>
 		<dict>
@@ -1786,7 +1831,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>935</integer>
 			<key>ypos</key>
-			<integer>840</integer>
+			<integer>825</integer>
 		</dict>
 		<key>2BBDFBE4-FBBC-4506-9269-3CFB4017932C</key>
 		<dict>
@@ -1807,7 +1852,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>670</integer>
 			<key>ypos</key>
-			<integer>840</integer>
+			<integer>825</integer>
 		</dict>
 		<key>4AFED243-84FB-4005-B115-FFD8635E6737</key>
 		<dict>
@@ -1829,6 +1874,13 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<integer>405</integer>
 			<key>ypos</key>
 			<integer>335</integer>
+		</dict>
+		<key>5526B8BB-14D0-4271-94CE-0C7C2A1DC4E7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>825</integer>
 		</dict>
 		<key>5B779377-8A0B-4819-9840-611C663A1004</key>
 		<dict>
@@ -1877,7 +1929,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>490</integer>
 			<key>ypos</key>
-			<integer>1175</integer>
+			<integer>1160</integer>
 		</dict>
 		<key>666D7BDE-787B-44BD-A535-3F76541B7F8C</key>
 		<dict>
@@ -1893,7 +1945,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>670</integer>
 			<key>ypos</key>
-			<integer>1005</integer>
+			<integer>990</integer>
 		</dict>
 		<key>745206F1-E7CE-43E5-93E0-80BAC4DC608C</key>
 		<dict>
@@ -1909,7 +1961,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>60</integer>
 			<key>ypos</key>
-			<integer>1175</integer>
+			<integer>1160</integer>
 		</dict>
 		<key>82BDBABC-EF45-49EC-9E6D-AAA169CC3C7A</key>
 		<dict>
@@ -1923,7 +1975,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>935</integer>
 			<key>ypos</key>
-			<integer>1175</integer>
+			<integer>1160</integer>
 		</dict>
 		<key>900A2A3E-D5CB-475C-996A-C6A8207DB171</key>
 		<dict>
@@ -1937,7 +1989,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>490</integer>
 			<key>ypos</key>
-			<integer>860</integer>
+			<integer>845</integer>
 		</dict>
 		<key>985CB791-EA4E-4B3E-A04E-37A481C33035</key>
 		<dict>
@@ -1979,7 +2031,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>865</integer>
 			<key>ypos</key>
-			<integer>870</integer>
+			<integer>855</integer>
 		</dict>
 		<key>AB4202F0-D40C-43BF-B596-C9F1B44B6DB7</key>
 		<dict>
@@ -2006,21 +2058,21 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 			<key>xpos</key>
 			<integer>1130</integer>
 			<key>ypos</key>
-			<integer>1005</integer>
+			<integer>990</integer>
 		</dict>
 		<key>CFF178E5-E80D-498F-AE8A-6F701B4A1961</key>
 		<dict>
 			<key>xpos</key>
 			<integer>230</integer>
 			<key>ypos</key>
-			<integer>1175</integer>
+			<integer>1160</integer>
 		</dict>
 		<key>D1473B02-FE77-4435-9785-81D202C91533</key>
 		<dict>
 			<key>xpos</key>
 			<integer>670</integer>
 			<key>ypos</key>
-			<integer>1175</integer>
+			<integer>1160</integer>
 		</dict>
 		<key>D775FDBF-FDA2-4FDE-9007-02111D660392</key>
 		<dict>
@@ -2041,13 +2093,13 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 	<dict>
 		<key>auto_refresh</key>
 		<string>1</string>
+		<key>hostnames_only</key>
+		<string>1</string>
 		<key>logins_only</key>
 		<string>0</string>
 	</dict>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>2022.9</string>
+	<string>2022.10</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>

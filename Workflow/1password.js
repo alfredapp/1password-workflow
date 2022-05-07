@@ -20,6 +20,16 @@ function writeFile(path, text) {
     .writeToFileAtomicallyEncodingError(path, true, $.NSUTF8StringEncoding, null)
 }
 
+// String -> String
+function getHostname(url) {
+  if (url === undefined) return undefined
+
+  return url
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\d?\./, "")
+    .replace(/[?:/].*$/, "")
+}
+
 // [String] -> String
 function runCommand(arguments) {
   const task = $.NSTask.alloc.init
@@ -47,9 +57,9 @@ function runOP(...arguments) {
 // String -> [Object]
 function getItems(userID, excludedVaults) {
   const vaults = runOP("vault", "list", "--account", userID)
-  const accountID = runOP("account", "get", "--account", userID)["id"]
-  const accountURL = runOP("account", "list")
-    .find(account => account["user_uuid"] === userID)["url"].replace(/^https?:\/\//, "")
+  const account = runOP("account", "list")
+    .find(account => account["user_uuid"] === userID)
+  const accountURL = envVar("hostnames_only") === "1" ? getHostname(account["url"]) : account["url"]
 
   return runOP("item", "list", "--account", userID).map(item => {
     const vaultID = item["vault"]["id"]
@@ -59,13 +69,14 @@ function getItems(userID, excludedVaults) {
 
     const vaultName = vaults.find(vault => vault["id"] === vaultID)["name"]
     const url = item["urls"]?.[0]["href"]
+    const displayURL = envVar("hostnames_only") === "1" ? getHostname(url) : url
 
     return {
       uid: item["id"],
       title: item["title"],
-      subtitle: url ? `${url} 𐄁 ${vaultName} 𐄁 ${accountURL}` : `${vaultName} 𐄁 ${accountURL}`,
+      subtitle: url ? `${displayURL} 𐄁 ${vaultName} 𐄁 ${accountURL}` : `${vaultName} 𐄁 ${accountURL}`,
       variables: {
-        accountID: accountID,
+        accountID: account["account_uuid"],
         vaultID: vaultID,
         itemID: item["id"],
         url: url
@@ -87,7 +98,7 @@ function getExcluded(filePath, varName) {
 function getUserIDs(excludedUserIDs) {
   return runOP("account", "list").map(account => {
     const accountEmail = account["email"]
-    const accountURL = account["url"].replace(/^https?:\/\//, "")
+    const accountURL = envVar("hostnames_only") === "1" ? getHostname(account["url"]) : account["url"]
 
     const userID = account["user_uuid"]
     const excluded = excludedUserIDs.includes(userID)
@@ -111,7 +122,7 @@ function getVaults(userID, excludedVaults) {
   const account = runOP("account", "list")
     .find(account => account["user_uuid"] === userID)
   const accountEmail = account["email"]
-  const accountURL = account["url"].replace(/^https?:\/\//, "")
+  const accountURL = envVar("hostnames_only") === "1" ? getHostname(account["url"]) : account["url"]
 
   return runOP("vault", "list", "--account", userID).map(vault => {
     const vaultID = vault["id"]

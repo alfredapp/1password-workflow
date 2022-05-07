@@ -18,9 +18,9 @@ On first run you’ll need to set up your account with 1Password’s official co
 
 From then on, `1p` will show your items. ↵ opens the website in your browser (and fills the credentials if you have the browser extension installed) while ⌘↵ opens the item in 1Password.
 
-![](https://user-images.githubusercontent.com/1699443/166268538-3706cc02-dd9e-4a05-8b4f-4eadca4cf692.png)
+![](https://user-images.githubusercontent.com/1699443/167198194-cb5bf2b7-52ee-4b39-bf0a-a921eb63c26d.png)
 
-The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types.
+The Workflow will attempt to detect when you update items in 1Password and present you with the option to refresh them. You can disable this behaviour by flipping the `auto_refresh` Workflow Environment Variable to `0`. Set `logins_only` to `1` if you want to hide other item types. Set `hostnames_only` to `0` if you want to see full URLs in results.
 
 Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pextras`.
 
