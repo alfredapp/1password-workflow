@@ -1850,6 +1850,8 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 		</dict>
 		<key>3C6D1460-731F-4A4A-8836-8AD03743EE23</key>
 		<dict>
+			<key>note</key>
+			<string>Add parameter to URL for open and fill</string>
 			<key>xpos</key>
 			<integer>670</integer>
 			<key>ypos</key>
@@ -2100,7 +2102,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 		<string>0</string>
 	</dict>
 	<key>version</key>
-	<string>2022.10</string>
+	<string>2022.11</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>

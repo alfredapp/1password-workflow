@@ -24,10 +24,9 @@ function writeFile(path, text) {
 function getHostname(url) {
   if (url === undefined) return undefined
 
-  return url
-    .replace(/^https?:\/\//, "")
+  return $.NSURL.URLWithString(url)
+    .host.js
     .replace(/^www\d?\./, "")
-    .replace(/[?:/].*$/, "")
 }
 
 // [String] -> String
