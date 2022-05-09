@@ -1420,10 +1420,9 @@ echo '{ "items": [{
   const itemID = $.NSProcessInfo.processInfo.environment.objectForKey("itemID").js
   const query = itemID + "=" + itemID
 
-  let url = $.NSProcessInfo.processInfo.environment.objectForKey("url").js
-  const urlObject = $.NSURL.URLWithString(url)
-
-  if (urlObject.scheme.js === undefined) url = "https://" + url
+  const initURL = $.NSProcessInfo.processInfo.environment.objectForKey("url").js
+  const urlObject = $.NSURL.URLWithString(initURL)
+  const url = (urlObject.scheme.js === undefined) ? "https://" + url : url
 
   if (urlObject.query.js === undefined) return url + "?" + query
   return url + "&amp;" + query
