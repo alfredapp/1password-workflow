@@ -1267,7 +1267,7 @@ printf '%q' "${script}" # print without newline to avoid sending empty input to 
 				<key>alfredfiltersresults</key>
 				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>argumenttreatemptyqueryasnil</key>
 				<true/>
 				<key>argumenttrimmode</key>
@@ -2101,6 +2101,8 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 		<key>logins_only</key>
 		<string>0</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>2022.11</string>
 	<key>webaddress</key>
