@@ -20,13 +20,24 @@ function writeFile(path, text) {
     .writeToFileAtomicallyEncodingError(path, true, $.NSUTF8StringEncoding, null)
 }
 
-// String -> String
-function getHostname(url) {
-  if (url === undefined) return undefined
+// String -> String?
+function withScheme(url) {
+  try {
+    const urlObject = $.NSURL.URLWithString(url)
+    return (urlObject.scheme.js === undefined) ? "https://" + url : url
+  } catch {
+    return url
+  }
+}
 
-  return $.NSURL.URLWithString(url)
-    .host.js
-    .replace(/^www\d?\./, "")
+// String -> String?
+function getHostname(url) {
+  try {
+    const urlObject = $.NSURL.URLWithString(withScheme(url))
+    return urlObject.host.js.replace(/^www\d?\./, "")
+  } catch {
+    return url
+  }
 }
 
 // [String] -> String
@@ -67,7 +78,7 @@ function getItems(userID, excludedVaults) {
     if (envVar("logins_only") === "1" && item["category"] !== "LOGIN") return
 
     const vaultName = vaults.find(vault => vault["id"] === vaultID)["name"]
-    const url = item["urls"]?.[0]["href"]
+    const url = withScheme(item["urls"]?.[0]["href"])
     const displayURL = envVar("hostnames_only") === "1" ? getHostname(url) : url
 
     return {

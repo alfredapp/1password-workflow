@@ -1392,8 +1392,6 @@ echo '{ "items": [{
 				<integer>0</integer>
 				<key>hotmod</key>
 				<integer>0</integer>
-				<key>hotstring</key>
-				<string></string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -1420,9 +1418,8 @@ echo '{ "items": [{
   const itemID = $.NSProcessInfo.processInfo.environment.objectForKey("itemID").js
   const query = itemID + "=" + itemID
 
-  const initURL = $.NSProcessInfo.processInfo.environment.objectForKey("url").js
-  const urlObject = $.NSURL.URLWithString(initURL)
-  const url = (urlObject.scheme.js === undefined) ? "https://" + url : url
+  const url = $.NSProcessInfo.processInfo.environment.objectForKey("url").js
+  const urlObject = $.NSURL.URLWithString(url)
 
   if (urlObject.query.js === undefined) return url + "?" + query
   return url + "&amp;" + query
@@ -2101,10 +2098,8 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 		<key>logins_only</key>
 		<string>0</string>
 	</dict>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>2022.11</string>
+	<string>2022.12</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
