@@ -28,7 +28,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 
 ![](https://user-images.githubusercontent.com/1699443/166268572-bc504873-5ff0-43a1-b76c-90bf380d8633.png)
 
-`!gddiagnostic` inspects the current Workflow configuration. It is to be run when asking for help.
+`!1pdiagnostic` inspects the current Workflow configuration. It is to be run when asking for help.
 
 <!-- END ABOUT -->
 
