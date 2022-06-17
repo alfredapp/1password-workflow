@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 if ! cd "$(dirname "${0}")"; then
-  echo "Could not change to Workflow directory at $(dirname "${0}")" >&2
+  echo "ERROR: Could not change to Workflow directory at $(dirname "${0}")" >&2
   exit 1
 fi
 
@@ -32,11 +32,18 @@ echo '\nUpdating items list. It will take a few seconds to complete.'
 echo 'You may close the terminal at any time.'
 nohup ./1password.js 'update_items' > /dev/null 2> >(tee) &
 
-# Loading
+# Progress bar
 while ps "${!}" > /dev/null; do
   echo -n '.'
   sleep '1.5'
 done
+
+# Verify items list
+if [[ "$(< "${alfred_workflow_data}/items.json")" == '{"items":[]}' ]]; then
+  echo '\n\nERROR: Unable to get any items. Please verify your login information and try again.' >&2
+  rm "${alfred_workflow_data}/"{items.json,vaults.json}
+  exit 1
+fi
 
 # Create hash of items
 readonly items_hash_file="${alfred_workflow_data}/items_hash.txt"
