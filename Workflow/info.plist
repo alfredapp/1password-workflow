@@ -1428,6 +1428,10 @@ echo '{ "items": [{
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
@@ -1551,6 +1555,10 @@ echo '{ "items": [{
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
@@ -1696,7 +1704,7 @@ fi</string>
 				<integer>102</integer>
 				<key>script</key>
 				<string>echo '### Workflow version'
-/usr/libexec/PlistBuddy -c 'print version' info.plist
+/usr/libexec/PlistBuddy -c 'Print :version' info.plist
 
 echo
 echo '### Alfred version'
@@ -1712,8 +1720,13 @@ echo '### Architecture'
 echo
 
 echo
-echo '### Workflow environment variables'
-/usr/libexec/PlistBuddy -c 'print variables' info.plist
+echo '### Preferences'
+
+if [[ -f 'prefs.plist' ]]; then
+  /usr/libexec/PlistBuddy -c 'Print' prefs.plist
+else
+  echo 'Default'
+fi
 
 echo
 echo '### 1Password version'
@@ -2262,10 +2275,8 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<string>auto_refresh</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>2022.14</string>
+	<string>2022.15</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
