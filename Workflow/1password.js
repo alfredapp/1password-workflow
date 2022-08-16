@@ -183,7 +183,6 @@ function prependDataUpdate(filePath) {
   sfObject["items"].forEach(item => item["uid"] = "") // Remove uids so Alfred does not sort
 
   sfObject["items"].unshift({
-    uid: "Update Items",
     title: "Update items",
     subtitle: "Your terminal will open with instructions",
     arg: "update_items"
@@ -226,6 +225,14 @@ function readJSON(filePath) {
 }
 
 function run(argv) {
+  // Commands required for setup which do not deal with data
+  switch (argv[0]) {
+    case "biometric_unlock_enabled":
+      return biometricUnlockEnabled()
+    case "op_path":
+      return opPath()
+  }
+
   // Data files
   const usersFile = envVar("alfred_workflow_data") + "/users.json"
   const vaultsFile = envVar("alfred_workflow_data") + "/vaults.json"
@@ -277,10 +284,6 @@ function run(argv) {
       return writeJSON(usersFile, {rerun: 0.1, items: sfUserIDs})
     case "data_update_detected":
       return prependDataUpdate(itemsFile)
-    case "biometric_unlock_enabled":
-      return biometricUnlockEnabled()
-    case "op_path":
-      return opPath()
     default:
       console.log("Unrecognised argument")
   }
