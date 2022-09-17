@@ -61,7 +61,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>910FCF14-BDBB-4FF7-A7B2-41014E499149</string>
+				<string>DE6D3C25-11A0-4166-A6CE-9E696A0893E0</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -111,6 +111,18 @@
 		</array>
 		<key>2894C3A0-66EF-4AD5-B055-673F1270B916</key>
 		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>910FCF14-BDBB-4FF7-A7B2-41014E499149</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>DA2F345E-AEF5-4D35-988D-DECECC15D94C</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>7277B529-365D-4D92-B874-22C6E407F47E</string>
@@ -710,6 +722,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>E66CAF69-6370-4360-A348-8F43397D64B1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>DE6D3C25-11A0-4166-A6CE-9E696A0893E0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3D8ADCD5-BC66-47A5-B354-ED6C2EAFFA24</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -1661,6 +1686,23 @@ echo '{
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string>{var:modifier_none}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>DE6D3C25-11A0-4166-A6CE-9E696A0893E0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>externaltriggerid</key>
 				<string>data_update_detected</string>
 				<key>passinputasargument</key>
@@ -1809,7 +1851,7 @@ echo "${new_items_hash}" &gt; "${items_hash_file}"</string>
 						<key>matchstring</key>
 						<string></string>
 						<key>outputlabel</key>
-						<string>Open website</string>
+						<string>Open and Fill</string>
 						<key>uid</key>
 						<string>EEAE4AD1-7B81-409C-821C-00A1CA6056C4</string>
 					</dict>
@@ -1876,23 +1918,6 @@ echo "${new_items_hash}" &gt; "${items_hash_file}"</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
-				<string>{var:modifier_shift}</string>
-				<key>passthroughargument</key>
-				<false/>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>9224DE47-1638-4DD8-823D-D8D9A661AB23</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -1901,6 +1926,7 @@ echo "${new_items_hash}" &gt; "${items_hash_file}"</string>
 				<string>readonly action="${1}"
 
 case "${action}" in
+  'Open and Fill') echo -n 'openandfill';;
   'View in 1Password') echo -n 'view';;
   'Copy Username') ./1password.js 'copy_by_label' 'username' "${itemID}";;
   'Copy Password') ./1password.js 'copy_by_label' 'password' "${itemID}";;
@@ -1920,6 +1946,69 @@ esac</string>
 			<string>3D8ADCD5-BC66-47A5-B354-ED6C2EAFFA24</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>openandfill</string>
+						<key>outputlabel</key>
+						<string>Open and Fill</string>
+						<key>uid</key>
+						<string>DA2F345E-AEF5-4D35-988D-DECECC15D94C</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>view</string>
+						<key>outputlabel</key>
+						<string>View in 1Password</string>
+						<key>uid</key>
+						<string>EEAE4AD1-7B81-409C-821C-00A1CA6056C4</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string></string>
+				<key>hideelse</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>2894C3A0-66EF-4AD5-B055-673F1270B916</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{var:modifier_shift}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>9224DE47-1638-4DD8-823D-D8D9A661AB23</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2036,38 +2125,6 @@ fi</string>
 			<string>B8E8AE2B-F7A4-4516-90D5-89F6F6EAD22F</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string>{query}</string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>view</string>
-						<key>outputlabel</key>
-						<string>View in 1Password</string>
-						<key>uid</key>
-						<string>EEAE4AD1-7B81-409C-821C-00A1CA6056C4</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string></string>
-				<key>hideelse</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>2894C3A0-66EF-4AD5-B055-673F1270B916</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2238,15 +2295,6 @@ else
 fi
 
 echo
-echo '### Biometric unlock'
-
-if [[ "$(./1password.js 'biometric_unlock_enabled')" == 'true' ]]; then
-  echo 'Enabled'
-else
-  echo 'NOT enabled'
-fi
-
-echo
 echo '### Launchd job'
 
 if launchctl list | grep -q "${alfred_workflow_bundleid}"; then
@@ -2353,7 +2401,7 @@ Before the first use, [install the 1Password CLI](https://1password.com/download
 
 ![1Password preferences](images/about/1password_preferences.png)
 
-Use the Search Keyword (default: `1p`) to interact with your 1Password items. ↩ opens the website in your browser and fills the credentials if you have the browser extension. Modifiers are configurable.
+Use the Search Keyword (default: `1p`) to interact with your 1Password items. Set the actions for each ↩ modifier in the User Configuration.
 
 ![Alfred search for 1p](images/about/1p.png)
 
@@ -2376,7 +2424,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<key>05ACE926-EBA9-4EA1-856D-F95AE9437802</key>
 		<dict>
 			<key>xpos</key>
-			<real>2525</real>
+			<real>2370</real>
 			<key>ypos</key>
 			<real>715</real>
 		</dict>
@@ -2397,7 +2445,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<key>10031FBB-CD36-4DDE-AA61-1642381CD7AF</key>
 		<dict>
 			<key>xpos</key>
-			<real>230</real>
+			<real>250</real>
 			<key>ypos</key>
 			<real>565</real>
 		</dict>
@@ -2411,7 +2459,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<key>2032CDC0-7BD4-4671-8A03-2BEB9F84B3D3</key>
 		<dict>
 			<key>xpos</key>
-			<real>1790</real>
+			<real>1635</real>
 			<key>ypos</key>
 			<real>440</real>
 		</dict>
@@ -2420,35 +2468,35 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>Open and fill in web browser</string>
 			<key>xpos</key>
-			<real>1225</real>
+			<real>1445</real>
 			<key>ypos</key>
 			<real>715</real>
 		</dict>
 		<key>2894C3A0-66EF-4AD5-B055-673F1270B916</key>
 		<dict>
 			<key>xpos</key>
-			<real>660</real>
+			<real>670</real>
 			<key>ypos</key>
-			<real>910</real>
+			<real>840</real>
 		</dict>
 		<key>2BBDFBE4-FBBC-4506-9269-3CFB4017932C</key>
 		<dict>
 			<key>xpos</key>
-			<real>965</real>
+			<real>865</real>
 			<key>ypos</key>
 			<real>500</real>
 		</dict>
 		<key>2C4443B4-B3E5-4C06-8444-48F2E3E040F8</key>
 		<dict>
 			<key>xpos</key>
-			<real>2525</real>
+			<real>2370</real>
 			<key>ypos</key>
 			<real>550</real>
 		</dict>
 		<key>2D9E5CE1-5C0C-40B1-A0CD-91753D9F27FB</key>
 		<dict>
 			<key>xpos</key>
-			<real>2190</real>
+			<real>2035</real>
 			<key>ypos</key>
 			<real>570</real>
 		</dict>
@@ -2464,16 +2512,18 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>Add parameter to URL for open and fill</string>
 			<key>xpos</key>
-			<real>770</real>
+			<real>1070</real>
 			<key>ypos</key>
 			<real>715</real>
 		</dict>
 		<key>3D8ADCD5-BC66-47A5-B354-ED6C2EAFFA24</key>
 		<dict>
+			<key>note</key>
+			<string>Parse modifier</string>
 			<key>xpos</key>
 			<real>490</real>
 			<key>ypos</key>
-			<real>880</real>
+			<real>820</real>
 		</dict>
 		<key>3EFD35DD-0984-4561-BB69-91541E75325E</key>
 		<dict>
@@ -2520,21 +2570,21 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<key>5B779377-8A0B-4819-9840-611C663A1004</key>
 		<dict>
 			<key>xpos</key>
-			<real>770</real>
+			<real>670</real>
 			<key>ypos</key>
 			<real>330</real>
 		</dict>
 		<key>5D3655AA-08CC-45D8-8B7B-ED639939DF1F</key>
 		<dict>
 			<key>xpos</key>
-			<real>965</real>
+			<real>865</real>
 			<key>ypos</key>
 			<real>440</real>
 		</dict>
 		<key>5F00C180-A092-46F1-96FB-DD891562A2A8</key>
 		<dict>
 			<key>xpos</key>
-			<real>770</real>
+			<real>670</real>
 			<key>ypos</key>
 			<real>460</real>
 		</dict>
@@ -2571,9 +2621,9 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>View in 1Password</string>
 			<key>xpos</key>
-			<real>770</real>
+			<real>1070</real>
 			<key>ypos</key>
-			<real>880</real>
+			<real>895</real>
 		</dict>
 		<key>7AF55FB7-58E3-49FB-B771-94EC70BF73CC</key>
 		<dict>
@@ -2591,8 +2641,10 @@ To report a problem, run `!1pdiagnostic`.</string>
 		</dict>
 		<key>910FCF14-BDBB-4FF7-A7B2-41014E499149</key>
 		<dict>
+			<key>note</key>
+			<string>In no URL available, view in 1Password</string>
 			<key>xpos</key>
-			<real>490</real>
+			<real>830</real>
 			<key>ypos</key>
 			<real>735</real>
 		</dict>
@@ -2631,21 +2683,21 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>Update items</string>
 			<key>xpos</key>
-			<real>2325</real>
+			<real>2170</real>
 			<key>ypos</key>
 			<real>715</real>
 		</dict>
 		<key>A8711759-B066-4A18-BB55-8A825C6FC01E</key>
 		<dict>
 			<key>xpos</key>
-			<real>965</real>
+			<real>865</real>
 			<key>ypos</key>
 			<real>370</real>
 		</dict>
 		<key>AADC9859-4CF2-43B3-831D-940B6BCBC278</key>
 		<dict>
 			<key>xpos</key>
-			<real>965</real>
+			<real>1265</real>
 			<key>ypos</key>
 			<real>745</real>
 		</dict>
@@ -2661,14 +2713,14 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>launchd agent</string>
 			<key>xpos</key>
-			<real>1230</real>
+			<real>1075</real>
 			<key>ypos</key>
 			<real>55</real>
 		</dict>
 		<key>B2F40960-56D8-4D9B-B474-148F395AE6EE</key>
 		<dict>
 			<key>xpos</key>
-			<real>1600</real>
+			<real>1445</real>
 			<key>ypos</key>
 			<real>460</real>
 		</dict>
@@ -2679,16 +2731,16 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>OneUpdater</string>
 			<key>xpos</key>
-			<real>1420</real>
+			<real>1635</real>
 			<key>ypos</key>
-			<real>880</real>
+			<real>895</real>
 		</dict>
 		<key>B974DC8F-2F5C-4E0A-A866-1693C7C525A2</key>
 		<dict>
 			<key>note</key>
 			<string>Check for valid CLI</string>
 			<key>xpos</key>
-			<real>2005</real>
+			<real>1850</real>
 			<key>ypos</key>
 			<real>550</real>
 		</dict>
@@ -2720,28 +2772,35 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>Check for CLI App Unlock</string>
 			<key>xpos</key>
-			<real>1225</real>
+			<real>1070</real>
 			<key>ypos</key>
 			<real>545</real>
 		</dict>
 		<key>D775FDBF-FDA2-4FDE-9007-02111D660392</key>
 		<dict>
 			<key>xpos</key>
-			<real>1230</real>
+			<real>1075</real>
 			<key>ypos</key>
 			<real>310</real>
+		</dict>
+		<key>DE6D3C25-11A0-4166-A6CE-9E696A0893E0</key>
+		<dict>
+			<key>xpos</key>
+			<real>390</real>
+			<key>ypos</key>
+			<real>690</real>
 		</dict>
 		<key>E0E63366-C846-4EB6-8625-9CCDD1637737</key>
 		<dict>
 			<key>xpos</key>
-			<real>965</real>
+			<real>865</real>
 			<key>ypos</key>
 			<real>310</real>
 		</dict>
 		<key>E66CAF69-6370-4360-A348-8F43397D64B1</key>
 		<dict>
 			<key>xpos</key>
-			<real>1405</real>
+			<real>1250</real>
 			<key>ypos</key>
 			<real>555</real>
 		</dict>
@@ -2750,14 +2809,14 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>Disable auto_refresh</string>
 			<key>xpos</key>
-			<real>815</real>
+			<real>715</real>
 			<key>ypos</key>
 			<real>210</real>
 		</dict>
 		<key>F98E7ED2-C99B-4242-A40F-8F2EFA9FE6B8</key>
 		<dict>
 			<key>xpos</key>
-			<real>2330</real>
+			<real>2175</real>
 			<key>ypos</key>
 			<real>570</real>
 		</dict>
@@ -2791,8 +2850,48 @@ To report a problem, run `!1pdiagnostic`.</string>
 				<key>pairs</key>
 				<array>
 					<array>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
+					</array>
+					<array>
 						<string>View in 1Password</string>
 						<string>View in 1Password</string>
+					</array>
+					<array>
+						<string>Copy Username</string>
+						<string>Copy Username</string>
+					</array>
+					<array>
+						<string>Copy Password</string>
+						<string>Copy Password</string>
+					</array>
+					<array>
+						<string>Copy One-Time Password</string>
+						<string>Copy OTP</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>↩</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>modifier_none</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>View in 1Password</string>
+						<string>View in 1Password</string>
+					</array>
+					<array>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
 					</array>
 					<array>
 						<string>Copy Username</string>
@@ -2838,6 +2937,10 @@ To report a problem, run `!1pdiagnostic`.</string>
 						<string>View in 1Password</string>
 						<string>View in 1Password</string>
 					</array>
+					<array>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
+					</array>
 				</array>
 			</dict>
 			<key>description</key>
@@ -2870,6 +2973,10 @@ To report a problem, run `!1pdiagnostic`.</string>
 						<string>View in 1Password</string>
 						<string>View in 1Password</string>
 					</array>
+					<array>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
+					</array>
 				</array>
 			</dict>
 			<key>description</key>
@@ -2901,6 +3008,10 @@ To report a problem, run `!1pdiagnostic`.</string>
 					<array>
 						<string>View in 1Password</string>
 						<string>View in 1Password</string>
+					</array>
+					<array>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
 					</array>
 				</array>
 			</dict>
@@ -2972,7 +3083,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2022.17</string>
+	<string>2022.18</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
