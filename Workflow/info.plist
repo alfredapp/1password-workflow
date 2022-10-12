@@ -2395,13 +2395,15 @@ fi</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>This Workflow is for 1Password 8. For older versions, see Alfred Preferences → Features → 1Password.
+	<string>## Setup
 
-Before the first use, [install the 1Password CLI](https://1password.com/downloads/command-line/) and turn on “Biometric Unlock for 1Password CLI” under the Developer tab of the 1Password preferences. Do this even if your Mac does not support Touch ID.
+[Install the 1Password CLI](https://1password.com/downloads/command-line/) and turn on “Biometric Unlock for 1Password CLI” under the Developer tab of the 1Password preferences. Do this even if your Mac does not support Touch ID.
 
 ![1Password preferences](images/about/1password_preferences.png)
 
-Use the Search Keyword (default: `1p`) to interact with your 1Password items. Set the actions for each ↩ modifier in the User Configuration.
+## Usage
+
+Run the Search Keyword (default: `1p`) to interact with your 1Password items. Set the actions for each ↩ modifier in the User Configuration.
 
 ![Alfred search for 1p](images/about/1p.png)
 
@@ -2410,6 +2412,8 @@ Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pex
 ![Alfred search for :1pextras](images/about/1pextras.png)
 
 ![Results for managing vaults](images/about/vaults.png)
+
+A [Fallback Search](https://www.alfredapp.com/help/features/default-results/fallback-searches/) is included.
 
 To report a problem, run `!1pdiagnostic`.</string>
 	<key>uidata</key>
@@ -2847,6 +2851,8 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>default</key>
+				<string>Open and Fill</string>
 				<key>pairs</key>
 				<array>
 					<array>
@@ -2883,15 +2889,17 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>default</key>
+				<string>View in 1Password</string>
 				<key>pairs</key>
 				<array>
 					<array>
-						<string>View in 1Password</string>
-						<string>View in 1Password</string>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
 					</array>
 					<array>
-						<string>Open and Fill</string>
-						<string>Open and Fill</string>
+						<string>View in 1Password</string>
+						<string>View in 1Password</string>
 					</array>
 					<array>
 						<string>Copy Username</string>
@@ -2919,27 +2927,29 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>default</key>
+				<string>Copy Password</string>
 				<key>pairs</key>
 				<array>
 					<array>
-						<string>Copy Password</string>
-						<string>Copy Password</string>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
+					</array>
+					<array>
+						<string>View in 1Password</string>
+						<string>View in 1Password</string>
 					</array>
 					<array>
 						<string>Copy Username</string>
 						<string>Copy Username</string>
+					</array>
+					<array>
+						<string>Copy Password</string>
+						<string>Copy Password</string>
 					</array>
 					<array>
 						<string>Copy One-Time Password</string>
 						<string>Copy OTP</string>
-					</array>
-					<array>
-						<string>View in 1Password</string>
-						<string>View in 1Password</string>
-					</array>
-					<array>
-						<string>Open and Fill</string>
-						<string>Open and Fill</string>
 					</array>
 				</array>
 			</dict>
@@ -2955,8 +2965,18 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>default</key>
+				<string>Copy Username</string>
 				<key>pairs</key>
 				<array>
+					<array>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
+					</array>
+					<array>
+						<string>View in 1Password</string>
+						<string>View in 1Password</string>
+					</array>
 					<array>
 						<string>Copy Username</string>
 						<string>Copy Username</string>
@@ -2968,14 +2988,6 @@ To report a problem, run `!1pdiagnostic`.</string>
 					<array>
 						<string>Copy One-Time Password</string>
 						<string>Copy OTP</string>
-					</array>
-					<array>
-						<string>View in 1Password</string>
-						<string>View in 1Password</string>
-					</array>
-					<array>
-						<string>Open and Fill</string>
-						<string>Open and Fill</string>
 					</array>
 				</array>
 			</dict>
@@ -2991,27 +3003,29 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>default</key>
+				<string>Copy OTP</string>
 				<key>pairs</key>
 				<array>
 					<array>
+						<string>Open and Fill</string>
+						<string>Open and Fill</string>
+					</array>
+					<array>
+						<string>View in 1Password</string>
+						<string>View in 1Password</string>
+					</array>
+					<array>
+						<string>Copy Username</string>
+						<string>Copy Username</string>
+					</array>
+					<array>
+						<string>Copy Password</string>
+						<string>Copy Password</string>
+					</array>
+					<array>
 						<string>Copy One-Time Password</string>
 						<string>Copy OTP</string>
-					</array>
-					<array>
-						<string>Copy Username</string>
-						<string>Copy Username</string>
-					</array>
-					<array>
-						<string>Copy Password</string>
-						<string>Copy Password</string>
-					</array>
-					<array>
-						<string>View in 1Password</string>
-						<string>View in 1Password</string>
-					</array>
-					<array>
-						<string>Open and Fill</string>
-						<string>Open and Fill</string>
 					</array>
 				</array>
 			</dict>
@@ -3083,7 +3097,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2022.18</string>
+	<string>2022.19</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
