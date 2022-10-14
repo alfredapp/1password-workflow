@@ -4,6 +4,8 @@ Search and open 1Password items
 
 <a href='https://github.com/alfredapp/1password-workflow/releases/latest/download/1Password.alfredworkflow'>⤓ Download Workflow</a>
 
+> On Alfred 4 use <a href='https://github.com/alfredapp/1password-workflow/releases/download/2022.13/1Password.alfredworkflow'>alternative link</a>
+
 ## Setup
 
 [Install the 1Password CLI](https://1password.com/downloads/command-line/) and turn on “Biometric Unlock for 1Password CLI” under the Developer tab of the 1Password preferences. Do this even if your Mac does not support Touch ID.
