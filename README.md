@@ -2,19 +2,17 @@
 
 Search and open 1Password items
 
-<a href='https://github.com/alfredapp/1password-workflow/releases/latest/download/1Password.alfredworkflow'>⤓ Download Workflow</a>
-
-> On Alfred 4 use <a href='https://github.com/alfredapp/1password-workflow/releases/download/2022.13/1Password.alfredworkflow'>alternative link</a>
+<a href='https://alfred.app/workflows/alfredapp/1password'>⤓ Install on the Alfred Gallery</a>
 
 ## Setup
 
-[Install the 1Password CLI](https://1password.com/downloads/command-line/) and turn on “Biometric Unlock for 1Password CLI” under the Developer tab of the 1Password preferences. Do this even if your Mac does not support Touch ID.
+[Install the 1Password CLI](https://1password.com/downloads/command-line/) and turn on the integration in 1Password Preferences → Developer → Connect with 1Password CLI.
 
 ![1Password preferences](Workflow/images/about/1password_preferences.png)
 
 ## Usage
 
-Run the Search Keyword (default: `1p`) to interact with your 1Password items. Set the actions for each <kbd>⏎</kbd> modifier in the User Configuration.
+Interact with your 1Password items via the Search Keyword (default: `1p`). Set the actions for each <kbd>⏎</kbd> modifier in the [Workflow’s Configuration](https://www.alfredapp.com/help/workflows/user-configuration/).
 
 ![Alfred search for 1p](Workflow/images/about/1p.png)
 

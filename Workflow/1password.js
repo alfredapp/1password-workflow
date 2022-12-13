@@ -105,27 +105,47 @@ function getItems(userID, excludedVaults) {
     .find(account => account["user_uuid"] === userID)
   const accountURL = envVar("hostnames_only") === "1" ? getHostname(account["url"]) : account["url"]
 
-  return runOP("item", "list", "--account", userID).map(item => {
+  return runOP("item", "list", "--account", userID).flatMap(item => {
     const vaultID = item["vault"]["id"]
 
+    // Return early due to user configuration
     if (excludedVaults.includes(vaultID)) return
     if (envVar("logins_only") === "1" && item["category"] !== "LOGIN") return
 
     const vaultName = vaults.find(vault => vault["id"] === vaultID)["name"]
-    const url = withScheme(item["urls"]?.[0]["href"])
-    const displayURL = envVar("hostnames_only") === "1" ? getHostname(url) : url
+    const urlObjects = item["urls"]
 
-    return {
-      uid: item["id"],
-      title: item["title"],
-      subtitle: url ? `${displayURL} 𐄁 ${vaultName} 𐄁 ${accountURL}` : `${vaultName} 𐄁 ${accountURL}`,
-      variables: {
-        accountID: account["account_uuid"],
-        vaultID: vaultID,
-        itemID: item["id"],
-        url: url
+    // Format when no URLs
+    if (urlObjects === undefined) {
+      return {
+        uid: item["id"],
+        title: item["title"],
+        subtitle: `${vaultName} 𐄁 ${accountURL}`,
+        variables: {
+          accountID: account["account_uuid"],
+          vaultID: vaultID,
+          itemID: item["id"],
+        }
       }
     }
+
+    // Array with one entry per URL
+    return urlObjects.map(urlObject => {
+      const url = withScheme(urlObject["href"])
+      const displayURL = envVar("hostnames_only") === "1" ? getHostname(url) : url
+
+      return {
+        uid: item["id"],
+        title: item["title"],
+        subtitle: `${displayURL} 𐄁 ${vaultName} 𐄁 ${accountURL}`,
+        variables: {
+          accountID: account["account_uuid"],
+          vaultID: vaultID,
+          itemID: item["id"],
+          url: url
+        }
+      }
+    })
   }).filter(item => item !== undefined) // Remove skipped items (excluded vaults or non-logins)
 }
 
