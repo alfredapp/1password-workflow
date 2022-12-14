@@ -1815,7 +1815,7 @@ echo "${new_items_hash}" &gt; "${items_hash_file}"</string>
 						<key>matchcasesensitive</key>
 						<false/>
 						<key>matchmode</key>
-						<integer>6</integer>
+						<integer>1</integer>
 						<key>matchstring</key>
 						<string></string>
 						<key>outputlabel</key>
@@ -2959,7 +2959,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2022.20</string>
+	<string>2022.21</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
