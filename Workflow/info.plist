@@ -1431,7 +1431,8 @@ echo '{
   "rerun": 0.1,
   "items": [{
     "title": "Sign in and update items",
-    "arg": "update_items"
+    "arg": "update_items",
+    "icon": { "path": "composite_icon.png" }
   }]
 }'</string>
 				<key>scriptargtype</key>
@@ -2958,10 +2959,8 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<string>auto_refresh</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>2022.22</string>
+	<string>2023.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
