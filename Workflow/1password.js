@@ -138,7 +138,7 @@ function getItems(userID, excludedVaults) {
         uid: item["id"],
         title: item["title"],
         subtitle: `${displayURL} 𐄁 ${vaultName} 𐄁 ${accountURL}`,
-        match: `${item["title"]} ${displayURL}`,
+        match: `${item["title"]} ${displayURL} ${item["category"]} ${item["tags"]?.join(" ")}`,
         variables: {
           accountID: account["account_uuid"],
           vaultID: vaultID,
