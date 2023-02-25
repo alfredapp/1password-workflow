@@ -813,8 +813,23 @@ read -r -d '' plist_contents &lt;&lt;ENDPLIST
     &lt;key&gt;ProgramArguments&lt;/key&gt;
     &lt;array&gt;
         &lt;string&gt;/usr/bin/osascript&lt;/string&gt;
+        &lt;string&gt;-l&lt;/string&gt;
+        &lt;string&gt;JavaScript&lt;/string&gt;
         &lt;string&gt;-e&lt;/string&gt;
-        &lt;string&gt;if application id &amp;quot;com.runningwithcrayons.Alfred&amp;quot; is running then tell application id &amp;quot;com.runningwithcrayons.Alfred&amp;quot; to run trigger &amp;quot;data_update_detected&amp;quot; in workflow &amp;quot;${alfred_workflow_bundleid}&amp;quot;&lt;/string&gt;
+        &lt;string&gt;
+          function run(argv) {
+            try {
+              const alfred = Application(&amp;quot;com.runningwithcrayons.Alfred&amp;quot;)
+              if (alfred.running()) alfred.runTrigger(argv[1], { inWorkflow: argv[0] })
+            } catch {
+              const fileManager = $.NSFileManager.defaultManager
+              const plistFile = fileManager.homeDirectoryForCurrentUser.path.js + &amp;quot;/Library/LaunchAgents/&amp;quot; + argv[0] + &amp;quot;.plist&amp;quot;
+              fileManager.removeItemAtPathError(plistFile, undefined)
+            }
+          }
+        &lt;/string&gt;
+        &lt;string&gt;${alfred_workflow_bundleid}&lt;/string&gt;
+        &lt;string&gt;data_update_detected&lt;/string&gt;
     &lt;/array&gt;
     &lt;key&gt;WatchPaths&lt;/key&gt;
     &lt;array&gt;
@@ -2961,7 +2976,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2023.3</string>
+	<string>2023.4</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
