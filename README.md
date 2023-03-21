@@ -2,7 +2,7 @@
 
 Search and open 1Password items
 
-<a href='https://alfred.app/workflows/alfredapp/1password'>⤓ Install on the Alfred Gallery</a>
+[⤓ Install on the Alfred Gallery](https://alfred.app/workflows/alfredapp/1password)
 
 ## Setup
 
@@ -12,11 +12,17 @@ Search and open 1Password items
 
 ## Usage
 
-Interact with your 1Password items via the Search Keyword (default: `1p`). Set the actions for each <kbd>↩&#xFE0E;</kbd> modifier in the [Workflow’s Configuration](https://www.alfredapp.com/help/workflows/user-configuration/).
+Interact with your 1Password items via the `1p` keyword.
 
 ![Alfred search for 1p](Workflow/images/about/1p.png)
 
-Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pextras`.
+* <kbd>↩&#xFE0E;</kbd>: Open and Fill.
+* <kbd>⌘</kbd><kbd>↩&#xFE0E;</kbd>: View in 1Password.
+* <kbd>⌥</kbd><kbd>↩&#xFE0E;</kbd>: Copy Password.
+* <kbd>⌃</kbd><kbd>↩&#xFE0E;</kbd>: Copy Username.
+* <kbd>⇧</kbd><kbd>↩&#xFE0E;</kbd>: Copy One-Time Password
+
+Uncommon but useful actions, such as toggling vaults, can be accessed with `:1pextras`.
 
 ![Alfred search for :1pextras](Workflow/images/about/1pextras.png)
 
