@@ -2293,11 +2293,17 @@ fi</string>
 
 ## Usage
 
-Interact with your 1Password items via the Search Keyword (default: `1p`). Set the actions for each &lt;kbd&gt;↩&lt;/kbd&gt; modifier in the [Workflow’s Configuration](https://www.alfredapp.com/help/workflows/user-configuration/).
+Interact with your 1Password items via the `1p` keyword.
 
 ![Alfred search for 1p](images/about/1p.png)
 
-Uncommon but useful actions, such as toggling vaults, can be accessed via `:1pextras`.
+* &lt;kbd&gt;↩&lt;/kbd&gt;: Open and Fill.
+* &lt;kbd&gt;⌘&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt;: View in 1Password.
+* &lt;kbd&gt;⌥&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt;: Copy Password.
+* &lt;kbd&gt;⌃&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt;: Copy Username.
+* &lt;kbd&gt;⇧&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt;: Copy One-Time Password
+
+Uncommon but useful actions, such as toggling vaults, can be accessed with `:1pextras`.
 
 ![Alfred search for :1pextras](images/about/1pextras.png)
 
