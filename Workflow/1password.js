@@ -60,7 +60,7 @@ function runCommand(arguments) {
   task.standardOutput = stdout
   task.launchAndReturnError(false)
 
-  const dataOut = stdout.fileHandleForReading.readDataToEndOfFile
+  const dataOut = stdout.fileHandleForReading.readDataToEndOfFileAndReturnError(false)
   const stringOut = $.NSString.alloc.initWithDataEncoding(dataOut, $.NSUTF8StringEncoding).js
 
   return stringOut
