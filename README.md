@@ -4,6 +4,8 @@ Search and open 1Password items
 
 [⤓ Install on the Alfred Gallery](https://alfred.app/workflows/alfredapp/1password)
 
+> On Alfred 4 use <a href='https://github.com/alfredapp/1password-workflow/releases/download/2022.13/1Password.alfredworkflow'>alternative link</a>
+
 ## Setup
 
 [Install the 1Password CLI](https://1password.com/downloads/command-line/) and turn on the integration in 1Password Preferences → Developer → Connect with 1Password CLI.
