@@ -2984,7 +2984,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2023.5</string>
+	<string>2023.6</string>
 	<key>webaddress</key>
 	<string>https://github.com/alfredapp/1password-workflow/</string>
 </dict>
