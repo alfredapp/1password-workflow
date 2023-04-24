@@ -86,15 +86,22 @@ function copySensitive(text) {
 }
 
 // String -> ()
-function copyOTP(itemID) {
-  const allOTP = runOP("item", "get", "--field", "type=otp", itemID) // Can be array of objects, single object, or nothing
+function copyOTP(itemID, vaultID, accountID) {
+  // Can be array of objects, single object, or nothing
+  const allOTP = runOP("item", "get", itemID,
+    "--field", "type=otp",
+    "--vault", vaultID, "--account", accountID)
+
   const otp = allOTP.length > 0 ? allOTP[0]["totp"] : allOTP["totp"] // If more than one, get primary
   copySensitive(otp)
 }
 
 // String -> ()
-function copyByLabel(label, itemID) {
-  const value = runOP("item", "get", "--field", `label=${label}`, itemID)["value"]
+function copyByLabel(label, itemID, vaultID, accountID) {
+  const value = runOP("item", "get", itemID,
+    "--field", `label=${label}`,
+    "--vault", vaultID, "--account", accountID)["value"]
+
   copySensitive(value)
 }
 
@@ -358,9 +365,9 @@ function run(argv) {
       writeJSON(itemsFile, {items: sfItems})
       break
     case "copy_otp":
-      return copyOTP(argv[1])
+      return copyOTP(argv[1], argv[2], argv[3])
     case "copy_by_label":
-      return copyByLabel(argv[1], argv[2])
+      return copyByLabel(argv[1], argv[2], argv[3], argv[4])
     case "flip_user_exclusion":
       flipExclusion(usersFile, "userID", argv[1])
       return prependDataUpdate(itemsFile)

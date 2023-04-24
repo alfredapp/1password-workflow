@@ -1912,9 +1912,9 @@ echo "${new_items_hash}" &gt; "${items_hash_file}"</string>
 case "${action}" in
   'Open and Fill') echo -n 'openandfill';;
   'View in 1Password') echo -n 'view';;
-  'Copy Username') ./1password.js 'copy_by_label' 'username' "${itemID}";;
-  'Copy Password') ./1password.js 'copy_by_label' 'password' "${itemID}";;
-  'Copy OTP') ./1password.js 'copy_otp' "${itemID}";;
+  'Copy Username') ./1password.js 'copy_by_label' 'username' "${itemID}" "${vaultID}" "${accountID}";;
+  'Copy Password') ./1password.js 'copy_by_label' 'password' "${itemID}" "${vaultID}" "${accountID}";;
+  'Copy OTP') ./1password.js 'copy_otp' "${itemID}" "${vaultID}" "${accountID}";;
   *) echo "Invalid action: ${action}" &gt;&amp;2; exit 1
 esac</string>
 				<key>scriptargtype</key>
@@ -2981,6 +2981,8 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<string>auto_refresh</string>
 		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>2023.5</string>
 	<key>webaddress</key>
