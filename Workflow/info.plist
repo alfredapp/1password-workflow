@@ -2915,7 +2915,8 @@ To report a problem, run `!1pdiagnostic`.</string>
 				</array>
 			</dict>
 			<key>description</key>
-			<string></string>
+			<string>Actions to perform when pressing modifier keys.
+Changes come into effect on next cache update.</string>
 			<key>label</key>
 			<string>⇧↩</string>
 			<key>type</key>
@@ -2981,8 +2982,6 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<string>auto_refresh</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>2023.6</string>
 	<key>webaddress</key>
