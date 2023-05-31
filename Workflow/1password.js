@@ -55,8 +55,8 @@ function runCommand(arguments) {
   const task = $.NSTask.alloc.init
   const stdout = $.NSPipe.pipe
 
-  task.executableURL = $.NSURL.alloc.initFileURLWithPath(arguments[0])
-  task.arguments = arguments.slice(1)
+  task.executableURL = $.NSURL.alloc.initFileURLWithPath("/usr/bin/env")
+  task.arguments = arguments
   task.standardOutput = stdout
   task.launchAndReturnError(false)
 
@@ -68,16 +68,17 @@ function runCommand(arguments) {
 
 // String... -> String
 function runOP(...arguments) {
-  const command = [opPath(), "--cache"]
+  const command = ["op", "--cache"]
   const format = ["--format", "json"]
 
   return JSON.parse(runCommand(command.concat(arguments, format)))
 }
 
-  ObjC.import("AppKit")
 
 // String -> ()
 function copySensitive(text) {
+  ObjC.import("AppKit")
+
   const pboard = $.NSPasteboard.generalPasteboard
 
   pboard.clearContents
@@ -255,19 +256,13 @@ function prependDataUpdate(filePath) {
 
 // () -> Bool
 function cliValidInstall() {
-  const cliPath = opPath()
-
   // Check if installed to correct location and executable
-  if (!$.NSFileManager.defaultManager.isExecutableFileAtPath(cliPath)) return false
+  if (!$.NSFileManager.defaultManager.isExecutableFileAtPath("/usr/local/bin/op")) return false
+
   // Check if valid version
-  if (parseInt(runCommand([cliPath, "--version"]).split(".")[0]) < 2) return false
+  if (parseInt(runCommand(["op", "--version"]).split(".")[0]) < 2) return false
 
   return true
-}
-
-// () -> String
-function opPath() {
-  return "/usr/local/bin/op"
 }
 
 // () -> Bool
@@ -304,11 +299,8 @@ function run(argv) {
     throw "The newest version of the 1Password CLI tool needs to be installed: https://1password.com/downloads/command-line/" // For Alfred's debugger
   }
 
-  // Commands which do not deal with data
-  switch (argv[0]) {
-    case "sanity_checks": return // Stop if we only want to check everything is ready
-    case "op_path": return opPath()
-  }
+  // Stop if we only want to check everything is ready
+  if (argv[0] == "sanity_checks") return
 
   // Data files
   const usersFile = envVar("alfred_workflow_data") + "/users.json"

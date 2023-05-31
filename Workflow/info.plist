@@ -1253,10 +1253,9 @@ echo '{
 				<string>Getting accounts…</string>
 				<key>script</key>
 				<string>readonly file="${alfred_workflow_data}/users.json"
-readonly op="$(./1password.js 'op_path')"
 
 # If we detect active users
-if [[ -n "$("${op}" account list)" ]]; then
+if [[ -n "$(op account list)" ]]; then
   # Create users JSON if it does not exist
   [[ -f "${file}" ]] || ./1password.js 'write_user_json'
 
@@ -1403,6 +1402,29 @@ echo '{
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./1password.js 'sanity_checks'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B974DC8F-2F5C-4E0A-A866-1693C7C525A2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -1478,6 +1500,27 @@ echo '{
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://1password.com/downloads/command-line/</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>2C4443B4-B3E5-4C06-8444-48F2E3E040F8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -1501,44 +1544,32 @@ echo '{
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>update_items</string>
+						<key>outputlabel</key>
+						<string>Update items</string>
+						<key>uid</key>
+						<string>60128803-7491-4D16-8ADE-FB406F888A2D</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
 				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./1password.js 'sanity_checks'</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
-			<string>B974DC8F-2F5C-4E0A-A866-1693C7C525A2</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
-				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://1password.com/downloads/command-line/</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>2C4443B4-B3E5-4C06-8444-48F2E3E040F8</string>
+			<string>10031FBB-CD36-4DDE-AA61-1642381CD7AF</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1571,38 +1602,6 @@ echo '{
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>E66CAF69-6370-4360-A348-8F43397D64B1</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>update_items</string>
-						<key>outputlabel</key>
-						<string>Update items</string>
-						<key>uid</key>
-						<string>60128803-7491-4D16-8ADE-FB406F888A2D</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>else</string>
-				<key>hideelse</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>10031FBB-CD36-4DDE-AA61-1642381CD7AF</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1765,12 +1764,11 @@ echo '{
 				<integer>102</integer>
 				<key>script</key>
 				<string># Constants
-readonly op="$(./1password.js 'op_path')"
 readonly user_ids=("${(f)$(./1password.js 'print_user_ids')}")
 
 # Sign in
 for user_id in "${user_ids[@]}"; do
-  "${op}" signin --account "${user_id}"
+  op signin --account "${user_id}"
 done
 
 # Update items list
@@ -2391,14 +2389,14 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>xpos</key>
 			<real>2370</real>
 			<key>ypos</key>
-			<real>550</real>
+			<real>545</real>
 		</dict>
 		<key>2D9E5CE1-5C0C-40B1-A0CD-91753D9F27FB</key>
 		<dict>
 			<key>xpos</key>
 			<real>2035</real>
 			<key>ypos</key>
-			<real>570</real>
+			<real>565</real>
 		</dict>
 		<key>307581EE-EB83-4CF4-BC49-E738E98841A5</key>
 		<dict>
@@ -2428,7 +2426,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<key>3EFD35DD-0984-4561-BB69-91541E75325E</key>
 		<dict>
 			<key>xpos</key>
-			<real>1125</real>
+			<real>1070</real>
 			<key>ypos</key>
 			<real>1285</real>
 		</dict>
@@ -2613,7 +2611,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>note</key>
 			<string>launchd agent</string>
 			<key>xpos</key>
-			<real>1075</real>
+			<real>1070</real>
 			<key>ypos</key>
 			<real>55</real>
 		</dict>
@@ -2631,7 +2629,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>xpos</key>
 			<real>1850</real>
 			<key>ypos</key>
-			<real>550</real>
+			<real>545</real>
 		</dict>
 		<key>BB2058EE-BD2F-4858-9421-D44A3319E9E3</key>
 		<dict>
@@ -2668,7 +2666,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 		<key>D775FDBF-FDA2-4FDE-9007-02111D660392</key>
 		<dict>
 			<key>xpos</key>
-			<real>1075</real>
+			<real>1070</real>
 			<key>ypos</key>
 			<real>310</real>
 		</dict>
@@ -2691,7 +2689,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>xpos</key>
 			<real>1250</real>
 			<key>ypos</key>
-			<real>555</real>
+			<real>565</real>
 		</dict>
 		<key>ECAFD427-940F-4963-801C-B096E45A9695</key>
 		<dict>
@@ -2707,7 +2705,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>xpos</key>
 			<real>2175</real>
 			<key>ypos</key>
-			<real>570</real>
+			<real>565</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
