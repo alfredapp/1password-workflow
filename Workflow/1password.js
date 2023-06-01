@@ -116,15 +116,14 @@ function getItems(userID, excludedVaults) {
   return runOP("item", "list", "--account", userID).flatMap(item => {
     const vaultID = item["vault"]["id"]
 
-    // Return early due to user configuration
+    // Return early due to workflow configuration
     if (excludedVaults.includes(vaultID)) return
     if (envVar("logins_only") === "1" && item["category"] !== "LOGIN") return
 
     const vaultName = vaults.find(vault => vault["id"] === vaultID)["name"]
-    const urlObjects = item["urls"]
 
     // Format when no URLs
-    if (urlObjects === undefined) {
+    if (item["urls"] === undefined) {
       return {
         uid: item["id"],
         title: item["title"],
@@ -137,7 +136,9 @@ function getItems(userID, excludedVaults) {
       }
     }
 
-    // Array with one entry per URL
+    // Array with one entry per URL, unless specified otherwise in workflow configuration
+    const urlObjects = envVar("multiple_entries") === "1" ? item["urls"] : [item["urls"][0]]
+
     return urlObjects.map(urlObject => {
       const url = withScheme(urlObject["href"])
       const displayURL = envVar("hostnames_only") === "1" ? getHostname(url) : url

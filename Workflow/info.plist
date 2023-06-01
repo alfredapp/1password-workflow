@@ -2935,7 +2935,7 @@ Changes come into effect on next cache update.</string>
 			<key>description</key>
 			<string></string>
 			<key>label</key>
-			<string>Types</string>
+			<string>Item Structure</string>
 			<key>type</key>
 			<string>checkbox</string>
 			<key>variable</key>
@@ -2949,16 +2949,35 @@ Changes come into effect on next cache update.</string>
 				<key>required</key>
 				<false/>
 				<key>text</key>
-				<string>Only show website hostnames</string>
+				<string>Truncate website address to the hostname</string>
 			</dict>
 			<key>description</key>
 			<string></string>
 			<key>label</key>
-			<string>Shortened URLs</string>
+			<string></string>
 			<key>type</key>
 			<string>checkbox</string>
 			<key>variable</key>
 			<string>hostnames_only</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Repeat entries with multiple websites</string>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string></string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>multiple_entries</string>
 		</dict>
 		<dict>
 			<key>config</key>
