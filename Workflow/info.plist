@@ -2176,8 +2176,8 @@ echo '### 1Password version'
 echo
 echo '### op version'
 
-if [[ -x '/usr/local/bin/op' ]]; then
-  /usr/local/bin/op --version
+if hash 'op' 2&gt; /dev/null; then
+  op --version
 else
   echo 'NOT installed'
 fi

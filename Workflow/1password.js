@@ -257,13 +257,10 @@ function prependDataUpdate(filePath) {
 
 // () -> Bool
 function cliValidInstall() {
-  // Check if installed to correct location and executable
-  if (!$.NSFileManager.defaultManager.isExecutableFileAtPath("/usr/local/bin/op")) return false
+  // Check if valid executable and the version
+  if (parseInt(runCommand(["op", "--version"]).split(".")[0]) > 1) return true
 
-  // Check if valid version
-  if (parseInt(runCommand(["op", "--version"]).split(".")[0]) < 2) return false
-
-  return true
+  return false
 }
 
 // () -> Bool
