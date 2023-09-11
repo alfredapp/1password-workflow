@@ -106,6 +106,30 @@ function copyByLabel(label, itemID, vaultID, accountID) {
   copySensitive(value)
 }
 
+// Object -> Object
+function getModifiers(item_vars) {
+  // Available actions for modifiers
+  const actions = {
+    open_and_fill: { subtitle: "Open and Fill" },
+    view_in_1password: { subtitle: "View in 1Password" },
+    copy_username: { subtitle: "Copy Username" },
+    copy_password: { subtitle: "Copy Password" },
+    copy_otp: { subtitle: "Copy OTP" },
+  }
+
+  // Each action has a variable with the same name, plus a set of item variables
+  Object.keys(actions).forEach(key => actions[key]["variables"] = Object.assign({ action: key }, item_vars))
+
+  // Populate modifiers
+  return {
+    none: actions[envVar("mod_none")],
+    cmd: actions[envVar("mod_cmd")],
+    alt: actions[envVar("mod_alt")],
+    ctrl: actions[envVar("mod_ctrl")],
+    shift: actions[envVar("mod_shift")]
+  }
+}
+
 // String -> [Object]
 function getItems(userID, excludedVaults) {
   const vaults = runOP("vault", "list", "--account", userID)
@@ -120,19 +144,25 @@ function getItems(userID, excludedVaults) {
     if (excludedVaults.includes(vaultID)) return
     if (envVar("logins_only") === "1" && item["category"] !== "LOGIN") return
 
+    // Vault name
     const vaultName = vaults.find(vault => vault["id"] === vaultID)["name"]
 
     // Format when no URLs
     if (item["urls"] === undefined) {
+      const itemVars = {
+        accountID: account["account_uuid"],
+        vaultID: vaultID,
+        itemID: item["id"],
+      }
+
+      const modifiers = getModifiers(itemVars)
+
       return {
         uid: item["id"],
         title: item["title"],
         subtitle: `${vaultName} 𐄁 ${accountURL}`,
-        variables: {
-          accountID: account["account_uuid"],
-          vaultID: vaultID,
-          itemID: item["id"],
-        }
+        mods: modifiers,
+        variables: Object.assign({ action: modifiers["none"] }, itemVars)
       }
     }
 
@@ -142,18 +172,23 @@ function getItems(userID, excludedVaults) {
     return urlObjects.map(urlObject => {
       const url = withScheme(urlObject["href"])
       const displayURL = envVar("hostnames_only") === "1" ? getHostname(url) : url
+      const itemVars = {
+        accountID: account["account_uuid"],
+        vaultID: vaultID,
+        itemID: item["id"],
+        url: url
+      }
+
+      const modifiers = getModifiers(itemVars)
 
       return {
+        variables: { action: modifiers["none"] },
         uid: item["id"],
         title: item["title"],
         subtitle: `${displayURL} 𐄁 ${vaultName} 𐄁 ${accountURL}`,
         match: `${item["title"]} ${displayURL} ${item["category"]} ${item["tags"]?.join(" ")}`,
-        variables: {
-          accountID: account["account_uuid"],
-          vaultID: vaultID,
-          itemID: item["id"],
-          url: url
-        }
+        mods: modifiers,
+        variables: Object.assign({ action: modifiers["none"] }, itemVars)
       }
     })
   }).filter(item => item !== undefined) // Remove skipped items (excluded vaults or non-logins)
@@ -242,11 +277,12 @@ function prependDataUpdate(filePath) {
 
   const sfObject = readJSON(filePath)
 
-  if (sfObject["items"][0]["arg"] == "update_items") return // Return early if update entry exists
+  if (sfObject["items"][0]["variables"]["action"] == "update_items") return // Return early if update entry exists
 
   sfObject["items"].forEach(item => delete item["uid"]) // Remove uids so Alfred does not sort
 
   sfObject["items"].unshift({
+    variables: { action: "update_items" },
     title: "Update items",
     arg: "update_items",
     icon: {path: "composite_icon.png"}
@@ -305,6 +341,18 @@ function run(argv) {
   const vaultsFile = envVar("alfred_workflow_data") + "/vaults.json"
   const itemsFile = envVar("alfred_workflow_data") + "/items.json"
 
+  // Commands which do not need the "op" CLI (and thus the 1Password app running)
+  switch (argv[0]) {
+    case "flip_user_exclusion":
+      flipExclusion(usersFile, "userID", argv[1])
+      return prependDataUpdate(itemsFile)
+    case "flip_vault_exclusion":
+      flipExclusion(vaultsFile, "vaultID", argv[1])
+      return prependDataUpdate(itemsFile)
+    case "data_update_detected":
+      return prependDataUpdate(itemsFile)
+  }
+
   // User ID information is useful in more than one command
   const excludedUserIDs = getExcluded(usersFile, "userID")
   const usersObject = getUserIDs(excludedUserIDs)
@@ -314,13 +362,14 @@ function run(argv) {
 
   const sfUserIDs = usersObject
     .concat({
+      variables: { action: "update_items" },
       title: "Update items",
       arg: "update_items",
       icon: {path: "composite_icon.png"},
       variables: {excluded: false, userID: false} // Avoid "undefined" errors in fuctions which interact with users file
     })
 
-  // Commands
+  // Commands which require the "op" CLI (and thus the 1Password app running)
   switch (argv[0]) {
     case "update_items":
       // Grab exclusions
@@ -345,6 +394,7 @@ function run(argv) {
 
       const sfVaults = activeUserIDs.flatMap(userID => getVaults(userID, excludedVaults))
         .concat({
+          variables: { action: "update_items" },
           title: "Update items",
           arg: "update_items",
           icon: {path: "composite_icon.png"},
@@ -358,20 +408,12 @@ function run(argv) {
       return copyOTP(argv[1], argv[2], argv[3])
     case "copy_by_label":
       return copyByLabel(argv[1], argv[2], argv[3], argv[4])
-    case "flip_user_exclusion":
-      flipExclusion(usersFile, "userID", argv[1])
-      return prependDataUpdate(itemsFile)
-    case "flip_vault_exclusion":
-      flipExclusion(vaultsFile, "vaultID", argv[1])
-      return prependDataUpdate(itemsFile)
     case "print_user_ids":
       return activeUserIDs.join("\n")
     case "print_user_json":
       return JSON.stringify({rerun: 0.1, items: sfUserIDs})
     case "write_user_json":
       return writeJSON(usersFile, {rerun: 0.1, items: sfUserIDs})
-    case "data_update_detected":
-      return prependDataUpdate(itemsFile)
     default:
       throw "Unrecognised argument: " + argv[0]
   }
