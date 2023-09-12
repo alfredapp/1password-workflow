@@ -162,7 +162,7 @@ function getItems(userID, excludedVaults) {
         title: item["title"],
         subtitle: `${vaultName} 𐄁 ${accountURL}`,
         mods: modifiers,
-        variables: Object.assign({ action: modifiers["none"] }, itemVars)
+        variables: Object.assign({ action: modifiers["none"]["variables"]["action"] }, itemVars)
       }
     }
 
@@ -188,7 +188,7 @@ function getItems(userID, excludedVaults) {
         subtitle: `${displayURL} 𐄁 ${vaultName} 𐄁 ${accountURL}`,
         match: `${item["title"]} ${displayURL} ${item["category"]} ${item["tags"]?.join(" ")}`,
         mods: modifiers,
-        variables: Object.assign({ action: modifiers["none"] }, itemVars)
+        variables: Object.assign({ action: modifiers["none"]["variables"]["action"] }, itemVars)
       }
     })
   }).filter(item => item !== undefined) // Remove skipped items (excluded vaults or non-logins)
