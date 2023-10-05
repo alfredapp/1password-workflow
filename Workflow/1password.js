@@ -9,10 +9,9 @@ function envVar(varName) {
 }
 
 // String -> ()
-function writeSTDOUT(text) {
-  $.NSFileHandle
-    .fileHandleWithStandardOutput
-    .writeData($.NSString.alloc.initWithString(text).dataUsingEncoding($.NSUTF8StringEncoding))
+function writeSTDOUT(string) {
+  const nsstring = $(string).dataUsingEncoding($.NSUTF8StringEncoding)
+  $.NSFileHandle.fileHandleWithStandardOutput.writeData(nsstring)
 }
 
 // String -> ()
@@ -24,10 +23,7 @@ function mkpath(path) {
 
 // String, String -> ()
 function writeFile(path, text) {
-  $.NSString
-    .alloc
-    .initWithUTF8String(text)
-    .writeToFileAtomicallyEncodingError(path, true, $.NSUTF8StringEncoding, null)
+  $(text).writeToFileAtomicallyEncodingError(path, true, $.NSUTF8StringEncoding, undefined)
 }
 
 // String -> String
@@ -55,7 +51,7 @@ function runCommand(arguments) {
   const task = $.NSTask.alloc.init
   const stdout = $.NSPipe.pipe
 
-  task.executableURL = $.NSURL.alloc.initFileURLWithPath("/usr/bin/env")
+  task.executableURL = $.NSURL.fileURLWithPath("/usr/bin/env")
   task.arguments = arguments
   task.standardOutput = stdout
   task.launchAndReturnError(false)
