@@ -10,8 +10,8 @@ function envVar(varName) {
 
 // String -> ()
 function writeSTDOUT(string) {
-  const nsstring = $(string).dataUsingEncoding($.NSUTF8StringEncoding)
-  $.NSFileHandle.fileHandleWithStandardOutput.writeData(nsstring)
+  const nsdata = $(string).dataUsingEncoding($.NSUTF8StringEncoding)
+  $.NSFileHandle.fileHandleWithStandardOutput.writeData(nsdata)
 }
 
 // String -> ()
