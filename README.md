@@ -16,11 +16,11 @@ Interact with your 1Password items via the `1p` keyword.
 
 ![Alfred search for 1p](Workflow/images/about/1p.png)
 
-* <kbd>↩&#xFE0E;</kbd>: Open and Fill.
-* <kbd>⌘</kbd><kbd>↩&#xFE0E;</kbd>: View in 1Password.
-* <kbd>⌥</kbd><kbd>↩&#xFE0E;</kbd>: Copy Password.
-* <kbd>⌃</kbd><kbd>↩&#xFE0E;</kbd>: Copy Username.
-* <kbd>⇧</kbd><kbd>↩&#xFE0E;</kbd>: Copy One-Time Password
+- <kbd>↩&#xFE0E;</kbd>: Open and Fill.
+- <kbd>⌘</kbd><kbd>↩&#xFE0E;</kbd>: View in 1Password.
+- <kbd>⌃</kbd><kbd>↩&#xFE0E;</kbd>: Copy Password.
+- <kbd>⌥</kbd><kbd>↩&#xFE0E;</kbd>: Copy Username.
+- <kbd>⇧</kbd><kbd>↩&#xFE0E;</kbd>: Copy One-Time Password
 
 Uncommon but useful actions, such as toggling vaults, can be accessed with `:1pextras`.
 
