@@ -976,6 +976,8 @@ echo '{
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
+				<key>skipuniversalaction</key>
+				<true/>
 				<key>subtext</key>
 				<string>Include or exclude vaults from results</string>
 				<key>title</key>
@@ -1240,6 +1242,8 @@ echo '{
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
+				<key>skipuniversalaction</key>
+				<true/>
 				<key>subtext</key>
 				<string>Include or exclude accounts from results</string>
 				<key>title</key>
@@ -1553,6 +1557,8 @@ echo '{
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
+				<key>skipuniversalaction</key>
+				<true/>
 				<key>subtext</key>
 				<string>Show your 1Password items</string>
 				<key>title</key>
@@ -2098,6 +2104,8 @@ echo "${new_items_hash}" &gt; "${items_hash_file}"</string>
 				<integer>2</integer>
 				<key>keyword</key>
 				<string>!1pdiagnostic</string>
+				<key>skipuniversalaction</key>
+				<true/>
 				<key>subtext</key>
 				<string>Result will be copied to the clipboard</string>
 				<key>text</key>
