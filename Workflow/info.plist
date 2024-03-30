@@ -3040,7 +3040,7 @@ Changes come into effect on next cache update.</string>
 				<key>required</key>
 				<false/>
 				<key>text</key>
-				<string>Check for 1Password modifications and offer to update data</string>
+				<string>Check for 1Password modifications and offer to update</string>
 			</dict>
 			<key>description</key>
 			<string></string>
