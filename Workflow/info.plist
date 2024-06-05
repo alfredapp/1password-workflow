@@ -32,6 +32,29 @@
 				<false/>
 			</dict>
 		</array>
+		<key>1B9901B6-D704-4CF2-8287-7B72C401C470</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>97090C7E-0127-4909-A2CA-D78C9DC0355F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1D21086A-0AED-4EA6-BD28-E6971528277C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2032CDC0-7BD4-4671-8A03-2BEB9F84B3D3</key>
 		<array>
 			<dict>
@@ -47,6 +70,19 @@
 		</array>
 		<key>2166D3DB-EF96-4C03-B95A-77D5068615D7</key>
 		<array/>
+		<key>27280DF5-78D3-4386-9EC9-E2E8CA15F869</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1B9901B6-D704-4CF2-8287-7B72C401C470</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2BBDFBE4-FBBC-4506-9269-3CFB4017932C</key>
 		<array>
 			<dict>
@@ -343,6 +379,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>6DE384FF-FDAF-4607-9281-254FAF291EB7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7D3F45C0-A7DC-4185-BA64-B3FD62C7CA86</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>7277B529-365D-4D92-B874-22C6E407F47E</key>
 		<array/>
 		<key>72EE2185-F8D8-43A9-949D-57337E125256</key>
@@ -371,11 +420,37 @@
 				<false/>
 			</dict>
 		</array>
+		<key>7D3F45C0-A7DC-4185-BA64-B3FD62C7CA86</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1B9901B6-D704-4CF2-8287-7B72C401C470</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>900A2A3E-D5CB-475C-996A-C6A8207DB171</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>4FEB803E-78D2-4DAA-A493-0C499D3B3415</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>91D809BB-5106-4221-89E8-F3CB113F026E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>27280DF5-78D3-4386-9EC9-E2E8CA15F869</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -428,6 +503,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>05ACE926-EBA9-4EA1-856D-F95AE9437802</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A62C2C3E-C332-4A12-93D8-C534D7C0EA15</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BEF1EE27-825A-4AD0-8BC4-9EBFAD6DDA4B</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -508,6 +596,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>39FC6428-F956-4D05-9D2D-255398F8F5E3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>BEF1EE27-825A-4AD0-8BC4-9EBFAD6DDA4B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1B9901B6-D704-4CF2-8287-7B72C401C470</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -2100,6 +2201,27 @@ echo "${new_items_hash}" &gt; "${items_hash_file}"</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Copied to Clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>97090C7E-0127-4909-A2CA-D78C9DC0355F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -2259,6 +2381,23 @@ fi</string>
 			<key>config</key>
 			<dict>
 				<key>argument</key>
+				<string>Username</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>27280DF5-78D3-4386-9EC9-E2E8CA15F869</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
 				<string>https://github.com/alfredapp/1password-workflow/issues/</string>
 				<key>passthroughargument</key>
 				<false/>
@@ -2311,6 +2450,46 @@ fi</string>
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.junction</string>
+			<key>uid</key>
+			<string>1B9901B6-D704-4CF2-8287-7B72C401C470</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>Password</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>7D3F45C0-A7DC-4185-BA64-B3FD62C7CA86</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>soundname</key>
+				<string>Submarine</string>
+				<key>systemsound</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.playsound</string>
+			<key>uid</key>
+			<string>1D21086A-0AED-4EA6-BD28-E6971528277C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
 			<key>config</key>
 			<dict>
 				<key>concurrently</key>
@@ -2332,6 +2511,23 @@ fi</string>
 			<string>A62C2C3E-C332-4A12-93D8-C534D7C0EA15</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>One-Time Password</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>BEF1EE27-825A-4AD0-8BC4-9EBFAD6DDA4B</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -2392,6 +2588,20 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>ypos</key>
 			<real>440</real>
 		</dict>
+		<key>1B9901B6-D704-4CF2-8287-7B72C401C470</key>
+		<dict>
+			<key>xpos</key>
+			<real>2100</real>
+			<key>ypos</key>
+			<real>1215</real>
+		</dict>
+		<key>1D21086A-0AED-4EA6-BD28-E6971528277C</key>
+		<dict>
+			<key>xpos</key>
+			<real>2210</real>
+			<key>ypos</key>
+			<real>1310</real>
+		</dict>
 		<key>2032CDC0-7BD4-4671-8A03-2BEB9F84B3D3</key>
 		<dict>
 			<key>xpos</key>
@@ -2407,6 +2617,13 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<real>2210</real>
 			<key>ypos</key>
 			<real>775</real>
+		</dict>
+		<key>27280DF5-78D3-4386-9EC9-E2E8CA15F869</key>
+		<dict>
+			<key>xpos</key>
+			<real>2020</real>
+			<key>ypos</key>
+			<real>1090</real>
 		</dict>
 		<key>2BBDFBE4-FBBC-4506-9269-3CFB4017932C</key>
 		<dict>
@@ -2564,6 +2781,13 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<key>ypos</key>
 			<real>1060</real>
 		</dict>
+		<key>7D3F45C0-A7DC-4185-BA64-B3FD62C7CA86</key>
+		<dict>
+			<key>xpos</key>
+			<real>2020</real>
+			<key>ypos</key>
+			<real>1215</real>
+		</dict>
 		<key>900A2A3E-D5CB-475C-996A-C6A8207DB171</key>
 		<dict>
 			<key>xpos</key>
@@ -2586,6 +2810,13 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<real>405</real>
 			<key>ypos</key>
 			<real>210</real>
+		</dict>
+		<key>97090C7E-0127-4909-A2CA-D78C9DC0355F</key>
+		<dict>
+			<key>xpos</key>
+			<real>2210</real>
+			<key>ypos</key>
+			<real>1060</real>
 		</dict>
 		<key>985CB791-EA4E-4B3E-A04E-37A481C33035</key>
 		<dict>
@@ -2669,6 +2900,13 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<real>530</real>
 			<key>ypos</key>
 			<real>575</real>
+		</dict>
+		<key>BEF1EE27-825A-4AD0-8BC4-9EBFAD6DDA4B</key>
+		<dict>
+			<key>xpos</key>
+			<real>2020</real>
+			<key>ypos</key>
+			<real>1340</real>
 		</dict>
 		<key>C6542F9B-7628-484C-8E6B-E87E5291D5BA</key>
 		<dict>
@@ -3052,6 +3290,8 @@ Changes come into effect on next cache update.</string>
 			<string>auto_refresh</string>
 		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>2024.1</string>
 	<key>webaddress</key>
