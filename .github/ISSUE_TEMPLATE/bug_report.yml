@@ -1,21 +1,39 @@
 name: Bug Report
 description: File a bug report
 body:
-  - type: textarea
+  - type: checkboxes
     attributes:
-      label: Diagnostic
-      description: Run `!1pdiagnostic` in Alfred. After the notification/sound, paste into this box
+      label: "Frequently Asked Questions"
+      description: Please be sure to consult the FAQ, as most problems and advanced features are covered there.
+      options:
+        - label: I have [read the FAQ](../blob/main/FAQ.md) before opening the issue.
+          required: true
+  - type: input
+    attributes:
+      label: Workflow version
+      description: Open the Workflow in Alfred Preferences and find it at the top, near the description
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Alfred version
+      description: In the top left corner of Alfred Preferences → General
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: macOS version
+      description: Click  on the menubar → About This Mac
     validations:
       required: true
   - type: textarea
     attributes:
       label: Debugger output
-      description: Perform the failing action with [the debugger](https://www.alfredapp.com/help/workflows/advanced/debugger/) open
-      render: codeblock
+      description: Perform the failing action with the [debugger](https://www.alfredapp.com/help/workflows/advanced/debugger/) open and click *Copy* on the top right.
+      render: alfred_debugger
     validations:
       required: true
   - type: textarea
     attributes:
       label: More details
       description: Explain what you did, what happened, and what you expected to happen
-
