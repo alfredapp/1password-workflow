@@ -15,7 +15,7 @@ If the workflow appears to hang when updating items, [open a terminal](https://s
 
 ### How do I report an issue?
 
-Accurate and thorough information is crucial for a proper diagnosis. When reporting issues, please include the output of running `!1pdiagnostic` in Alfred, in addition to:
+Accurate and thorough information is crucial for a proper diagnosis. **At a minimum, your report should include:**
 
-* The [debugger](https://www.alfredapp.com/help/workflows/advanced/debugger/) output. Perform the failing action and click *Copy* on the top right.
-* Details on what you did, what happened, and what you expected to happen. A [short video](https://support.apple.com/en-us/HT208721) of the steps with the debugger open may help to find the problem faster.
+* The output of running `!1pdiagnostic`.
+* The [debugger](https://www.alfredapp.com/help/workflows/advanced/debugger/) output of the failing action.
