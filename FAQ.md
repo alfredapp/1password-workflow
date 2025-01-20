@@ -13,6 +13,10 @@ If the workflow appears to hang when updating items, [open a terminal](https://s
 * If you get an error, something is wrong with 1Password’s command-line tool or its interaction with the app and it needs to be resolved with the [1Password support](https://1password.community/).
 * If you see your items, open the [debugger](https://www.alfredapp.com/help/workflows/advanced/debugger/) and run `:1pextras` → `Force Update Items`. Include the debugger’s output in your report.
 
+### Can I see usernames in the subtitle?
+
+The workflow deliberatedly doesn’t grab usernames. Those can themselves be sensitive information and 1Password saves them in the same field used to store the first line from secure notes, which can be even more private. Given the broad range of users this workflow is geared for and the potential sensitivity of the data, after much deliberation I have opted for the cautious approach.
+
 ### How do I report an issue?
 
 Accurate and thorough information is crucial for a proper diagnosis. **At a minimum, your report should include:**
