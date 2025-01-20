@@ -1956,9 +1956,10 @@ echo '{
   const query = itemID + "=" + itemID
 
   const url = $.NSProcessInfo.processInfo.environment.objectForKey("url").js
+  if (url === undefined) throw "Item does not have a configured website URL"
   const urlObject = $.NSURL.URLWithString(url)
 
-  if (urlObject.query.js === undefined) return url + "?" + query
+  if (urlObject.query.js === undefined) return url + "?" + query 
   return url + "&amp;" + query
 }</string>
 				<key>scriptargtype</key>
