@@ -17,6 +17,10 @@ If the workflow appears to hang when updating items, [open a terminal](https://s
 
 The workflow deliberatedly doesn’t grab usernames. Those can themselves be sensitive information and 1Password saves them in the same field used to store the first line from secure notes, which can be even more private. Given the broad range of users this workflow is geared for and the potential sensitivity of the data, after much deliberation I have opted for the cautious approach.
 
+### How do I set different default actions?
+
+You can change the actions for common modifiers in the [Workflow’s Configuration](https://www.alfredapp.com/help/workflows/user-configuration/). Run `:1pextras` → `Force Update Items` after saving to commit your changes.
+
 ### How do I report an issue?
 
 Accurate and thorough information is crucial for a proper diagnosis. **At a minimum, your report should include:**
