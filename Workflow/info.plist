@@ -3234,7 +3234,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 			</dict>
 			<key>description</key>
 			<string>Actions to perform when pressing modifier keys.
-Changes come into effect on next cache update.</string>
+Changes come into effect after updating items.</string>
 			<key>label</key>
 			<string>⇧↩</string>
 			<key>type</key>
