@@ -1635,7 +1635,15 @@ Keep it running and try again.</string>
 				<key>runningsubtext</key>
 				<string>Getting items…</string>
 				<key>script</key>
-				<string>readonly items_file="${alfred_workflow_data}/items.json"
+				<string># If workflow preferences changed, request item update
+if [[ -f './prefs.plist' ]] &amp;&amp; ! /usr/bin/cmp -s './prefs.plist' "${alfred_workflow_data}/prefs.plist"; then
+  /bin/mkdir -p "${alfred_workflow_data}"
+  /bin/cp './prefs.plist' "${alfred_workflow_data}/prefs.plist"
+  ./1password.js 'data_update_detected'
+fi
+
+# Read items file if present and exit early
+readonly items_file="${alfred_workflow_data}/items.json"
 
 if [[ -f "${items_file}" ]]; then
   &lt; "${items_file}"
@@ -1649,6 +1657,7 @@ if [[ -f "${prefs_file}" ]]; then
   /usr/libexec/PlistBuddy -c 'Delete :enabled' "${prefs_file}" 2&gt; /dev/null
 fi
 
+# Request initial build
 echo '{
   "rerun": 0.1,
   "items": [{
