@@ -3242,8 +3242,7 @@ To report a problem, run `!1pdiagnostic`.</string>
 				</array>
 			</dict>
 			<key>description</key>
-			<string>Actions to perform when pressing modifier keys.
-Changes come into effect after updating items.</string>
+			<string>Actions to perform when pressing modifier keys.</string>
 			<key>label</key>
 			<string>⇧↩</string>
 			<key>type</key>

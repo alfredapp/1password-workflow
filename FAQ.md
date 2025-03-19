@@ -13,13 +13,17 @@ If the workflow appears to hang when updating items, [open a terminal](https://s
 * If you get an error, something is wrong with 1Password’s command-line tool or its interaction with the app and it needs to be resolved with the [1Password support](https://1password.community/).
 * If you see your items, open the [debugger](https://www.alfredapp.com/help/workflows/advanced/debugger/) and run `:1pextras` → `Force Update Items`. Include the debugger’s output in your report.
 
+### How do I resolve the connecting to desktop app error?
+
+Make sure 1Password is enabled in System Settings → General → Login Items & Extensions.
+
+### Why is modifying preferences not having an effect?
+
+Settings affect the creation of the cache file, so after changing modifer actions or other options in the [Workflow’s Configuration](https://www.alfredapp.com/help/workflows/user-configuration/), be sure to run `:1pextras` → `Force Update Items` to commit your changes.
+
 ### Can I see usernames in the subtitle?
 
 The workflow deliberatedly doesn’t grab usernames. Those can themselves be sensitive information and 1Password saves them in the same field used to store the first line from secure notes, which can be even more private. Given the broad range of users this workflow is geared for and the potential sensitivity of the data, after much deliberation I have opted for the cautious approach.
-
-### How do I set different default actions?
-
-You can change the actions for common modifiers in the [Workflow’s Configuration](https://www.alfredapp.com/help/workflows/user-configuration/). Run `:1pextras` → `Force Update Items` after saving to commit your changes.
 
 ### How do I report an issue?
 
