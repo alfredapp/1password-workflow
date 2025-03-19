@@ -946,7 +946,7 @@ fi</string>
 				<integer>102</integer>
 				<key>script</key>
 				<string>readonly items_hash_file="${alfred_workflow_data}/items_hash.txt"
-readonly old_items_hash="$(/bin/cat "${items_hash_file}")"
+readonly old_items_hash="$(&lt; "${items_hash_file}")"
 readonly new_items_hash="$(/usr/bin/sqlite3 "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/1password.sqlite" 'SELECT * FROM item_overviews;' | md5)"
 
 [[ -n "${items_hash_file}" ]] || exit 1
@@ -1635,10 +1635,10 @@ Keep it running and try again.</string>
 				<key>runningsubtext</key>
 				<string>Getting items…</string>
 				<key>script</key>
-				<string>readonly file="${alfred_workflow_data}/items.json"
+				<string>readonly items_file="${alfred_workflow_data}/items.json"
 
-if [[ -f "${file}" ]]; then
-  cat "${file}"
+if [[ -f "${items_file}" ]]; then
+  &lt; "${items_file}"
   exit 0
 fi
 
