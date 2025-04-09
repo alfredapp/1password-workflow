@@ -70,7 +70,6 @@ function runOP(...arguments) {
   return JSON.parse(runCommand(command.concat(arguments, format)))
 }
 
-
 // String -> ()
 function copySensitive(text) {
   ObjC.import("AppKit")
