@@ -1966,14 +1966,17 @@ echo '{
 				<key>script</key>
 				<string>function run() {
   const itemID = $.NSProcessInfo.processInfo.environment.objectForKey("itemID").js
-  const query = itemID + "=" + itemID
-
   const url = $.NSProcessInfo.processInfo.environment.objectForKey("url").js
-  if (url === undefined) throw "Item does not have a configured website URL"
-  const urlObject = $.NSURL.URLWithString(url)
 
-  if (urlObject.query.js === undefined) return url + "?" + query 
-  return url + "&amp;" + query
+  if (url === undefined) throw "Item does not have a configured website URL"
+
+  const urlObject = $.NSURL.URLWithString(url)
+  const components = $.NSURLComponents.componentsWithURLResolvingAgainstBaseURL(urlObject, false)
+  const itemQuery = $.NSURLQueryItem.queryItemWithNameValue(itemID, itemID)
+  const queryItems = components.queryItems.js?.concat(itemQuery) || [itemQuery]
+
+  components.setQueryItems($(queryItems))
+  return components.URL.absoluteString.js
 }</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
