@@ -11,7 +11,7 @@ function envVar(varName) {
 // String -> ()
 function writeSTDOUT(string) {
   const nsdata = $(string).dataUsingEncoding($.NSUTF8StringEncoding)
-  $.NSFileHandle.fileHandleWithStandardOutput.writeData(nsdata)
+  $.NSFileHandle.fileHandleWithStandardOutput.writeDataError(nsdata, undefined)
 }
 
 // String -> ()
