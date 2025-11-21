@@ -978,7 +978,7 @@ if [[ "${auto_refresh}" -eq 0 ]]; then
   [[ -f "${plist_file}" ]] || exit 0
 
   # Uninstall agent
-  launchctl bootout "gui/$(id -u "${USER}")" "${plist_file}"
+  launchctl bootout "gui/${UID}" "${plist_file}"
   rm "${plist_file}"
 else
   # Exit early if plist exists
@@ -987,7 +987,7 @@ else
   # Install agent
   mkdir -p "${launchagents_dir}"
   echo "${plist_contents}" &gt; "${plist_file}"
-  launchctl bootstrap "gui/$(id -u "${USER}")" "${plist_file}"
+  launchctl bootstrap "gui/${UID}" "${plist_file}"
 fi</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
