@@ -2331,7 +2331,7 @@ sleep "${copy_cleanup_seconds}"
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>!1pdiagnostic</string>
+				<string>:1pdiagnostic</string>
 				<key>skipuniversalaction</key>
 				<true/>
 				<key>subtext</key>
@@ -2780,7 +2780,7 @@ Uncommon but useful actions, such as toggling vaults, can be accessed with `:1pe
 
 A [Fallback Search](https://www.alfredapp.com/help/features/default-results/fallback-searches/) is included.
 
-To report a problem, run `!1pdiagnostic`.</string>
+To report a problem, run `:1pdiagnostic`.</string>
 	<key>uidata</key>
 	<dict>
 		<key>05ACE926-EBA9-4EA1-856D-F95AE9437802</key>
@@ -3594,8 +3594,6 @@ To report a problem, run `!1pdiagnostic`.</string>
 			<string>auto_refresh</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>25.1</string>
 	<key>webaddress</key>

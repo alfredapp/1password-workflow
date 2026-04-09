@@ -29,5 +29,5 @@ The workflow deliberatedly doesn’t grab usernames. Those can themselves be sen
 
 Accurate and thorough information is crucial for a proper diagnosis. **At a minimum, your report should include:**
 
-* The output of running `!1pdiagnostic`.
+* The output of running `:1pdiagnostic`.
 * The [debugger](https://www.alfredapp.com/help/workflows/advanced/debugger/) output of the failing action.
