@@ -1013,7 +1013,7 @@ fi</string>
 				<key>script</key>
 				<string>readonly items_hash_file="${alfred_workflow_data}/items_hash.txt"
 readonly old_items_hash="$(&lt; "${items_hash_file}")"
-readonly new_items_hash="$(/usr/bin/sqlite3 "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/1password.sqlite" 'SELECT * FROM item_overviews;' | md5)"
+readonly new_items_hash="$(/usr/bin/sqlite3 "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/1password.sqlite" 'SELECT * FROM items;' | md5)"
 
 [[ -n "${items_hash_file}" ]] || exit 1
 [[ "${old_items_hash}" == "${new_items_hash}" ]] &amp;&amp; exit 0
@@ -2126,7 +2126,7 @@ fi
 
 # Create hash of items
 readonly items_hash_file="${alfred_workflow_data}/items_hash.txt"
-readonly new_items_hash="$(/usr/bin/sqlite3 "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/1password.sqlite" 'SELECT * FROM item_overviews;' | md5)"
+readonly new_items_hash="$(/usr/bin/sqlite3 "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password/Library/Application Support/1Password/Data/1password.sqlite" 'SELECT * FROM items;' | md5)"
 
 mkdir -p "$(dirname "${items_hash_file}")"
 echo "${new_items_hash}" &gt; "${items_hash_file}"</string>
