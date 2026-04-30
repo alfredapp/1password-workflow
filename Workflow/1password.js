@@ -167,6 +167,7 @@ function getItems(userID, excludedVaults) {
     return urlObjects.map(urlObject => {
       const url = withScheme(urlObject["href"])
       const displayURL = envVar("hostnames_only") === "1" ? getHostname(url) : url
+      const label = urlObject["label"] === undefined || urlObject["label"] === "website" ? "" : ` (${urlObject["label"]})` // Keep custom labels
       const itemVars = {
         accountID: account["account_uuid"],
         vaultID: vaultID,
@@ -180,8 +181,8 @@ function getItems(userID, excludedVaults) {
         variables: { action: modifiers["none"] },
         uid: item["id"],
         title: item["title"],
-        subtitle: `${displayURL} 𐄁 ${vaultName} 𐄁 ${accountURL}`,
-        match: `${item["title"]} ${displayURL} ${item["category"]} ${item["tags"]?.join(" ")}`,
+        subtitle: `${displayURL}${label} 𐄁 ${vaultName} 𐄁 ${accountURL}`,
+        match: `${item["title"]} ${displayURL} ${label} ${item["category"]} ${item["tags"]?.join(" ")}`,
         mods: modifiers,
         variables: Object.assign({ action: modifiers["none"]["variables"]["action"] }, itemVars)
       }
