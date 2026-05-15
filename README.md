@@ -16,11 +16,11 @@ Interact with your 1Password items via the `1p` keyword.
 
 ![Alfred search for 1p](Workflow/images/about/1p.png)
 
-* <kbd>↩</kbd> Open and Fill.
-* <kbd>⌘</kbd><kbd>↩</kbd> View in 1Password.
-* <kbd>⌥</kbd><kbd>↩</kbd> Copy Username.
-* <kbd>⌃</kbd><kbd>↩</kbd> Copy Password.
-* <kbd>⇧</kbd><kbd>↩</kbd> Copy One-Time Password
+* <kbd>↩&#xFE0E;</kbd> Open and Fill.
+* <kbd>⌘</kbd><kbd>↩&#xFE0E;</kbd> View in 1Password.
+* <kbd>⌥</kbd><kbd>↩&#xFE0E;</kbd> Copy Username.
+* <kbd>⌃</kbd><kbd>↩&#xFE0E;</kbd> Copy Password.
+* <kbd>⇧</kbd><kbd>↩&#xFE0E;</kbd> Copy One-Time Password
 
 Uncommon but useful actions, such as toggling vaults, can be accessed with `:1pextras`.
 
@@ -30,4 +30,4 @@ Uncommon but useful actions, such as toggling vaults, can be accessed with `:1pe
 
 A [Fallback Search](https://www.alfredapp.com/help/features/default-results/fallback-searches/) is included.
 
-To report a problem, run `!1pdiagnostic`.
+To report a problem, run `:1pdiagnostic`.
